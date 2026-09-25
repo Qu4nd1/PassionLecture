@@ -5,7 +5,7 @@
 - Préférer le camelCase pour les variables.
 - Éviter les abréviations ambiguës.
 - Les noms doivent refléter le rôle de la variable.
-- Utiliser des noms en anglais si le projet est en anglais.
+- Utiliser des noms en anglais.
 
 ## Exemples
 - `userName`
@@ -16,7 +16,6 @@
 
 ## À éviter
 - `x`, `y`, `temp`, `data1`
-- `nom`, `prenom`, `valeur` (si le projet est en anglais)
 - Noms trop longs ou peu lisibles
 - Noms contenant des caractères spéciaux ou des espaces
 
@@ -32,3 +31,5 @@
 - `arrayItems`
 - `objectConfig`
 - `resultValue`
+
+## Tableau des variables pour tout le projet avec sa définition

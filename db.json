@@ -1,14 +1,140 @@
 {
-  "booksBackend": [
+  "books": [
     {
-      "id": "6",
-      "title": "1984",
-      "numberOfPages": 328
+      "id": 1,
+      "userId": 1,
+      "title": "The Passionate Lecture",
+      "categorie": "Education",
+      "numberOfPages": 328,
+      "extract": "public/extracts/passionate-lecture.pdf",
+      "summary": "A practical guide to designing and delivering engaging lectures that inspire students to learn actively.",
+      "writerName": "Alex",
+      "writerSurname": "Martinez",
+      "editorName": "Scholarly Press",
+      "releaseYear": 2024,
+      "coverImage": "public/images/passionate-lecture.jpg"
     },
     {
-      "id": "8",
-      "title": "Le comte de montécristo",
-      "numberOfPages": 628
+      "id": 2,
+      "userId": 2,
+      "title": "Active Learning Strategies",
+      "categorie": "Education",
+      "numberOfPages": 256,
+      "extract": "public/extracts/active-learning.pdf",
+      "summary": "An accessible handbook of techniques for making classrooms more interactive and student-centered.",
+      "writerName": "Sophie",
+      "writerSurname": "Chen",
+      "editorName": "Campus Books",
+      "releaseYear": 2022,
+      "coverImage": "public/images/active-learning.jpg"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "title": "Designing Inclusive Learning",
+      "categorie": "Education",
+      "numberOfPages": 210,
+      "extract": "public/extracts/inclusive-learning.pdf",
+      "summary": "Guidelines and practices to make learning environments accessible and welcoming for all students.",
+      "writerName": "Jamie",
+      "writerSurname": "Lopez",
+      "editorName": "Inclusive Press",
+      "releaseYear": 2021,
+      "coverImage": "public/images/inclusive-learning.jpg"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "title": "Lecture to Screen",
+      "categorie": "Media",
+      "numberOfPages": 198,
+      "extract": "public/extracts/lecture-to-screen.pdf",
+      "summary": "Adapting traditional lectures for effective online and recorded delivery.",
+      "writerName": "Raj",
+      "writerSurname": "Patel",
+      "editorName": "Digital Campus",
+      "releaseYear": 2020,
+      "coverImage": "public/images/lecture-to-screen.jpg"
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "title": "Classroom Assessment Techniques",
+      "categorie": "Education",
+      "numberOfPages": 176,
+      "extract": "public/extracts/assessment-techniques.pdf",
+      "summary": "Quick, formative assessment methods instructors can use to gauge student learning.",
+      "writerName": "Morgan",
+      "writerSurname": "Lee",
+      "editorName": "Assessment Works",
+      "releaseYear": 2019,
+      "coverImage": "public/images/assessment-techniques.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "pseudo": "alexm",
+      "entryDate": "2024-05-10"
+    },
+    {
+      "id": 2,
+      "pseudo": "sophie",
+      "entryDate": "2023-08-01"
+    }
+    ,
+    {
+      "id": 3,
+      "pseudo": "jamiel",
+      "entryDate": "2021-11-12"
+    },
+    {
+      "id": 4,
+      "pseudo": "rajp",
+      "entryDate": "2020-02-20"
+    },
+    {
+      "id": 5,
+      "pseudo": "morganl",
+      "entryDate": "2019-07-05"
+    }
+  ],
+  "ratings": [
+    {
+      "id": 1,
+      "userId":1,
+      "bookId":1,
+      "comment":"Insightful and practical — transformed my lectures.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "userId":2,
+      "bookId":2,
+      "comment":"Great examples, easy to implement.",
+      "rating": 4
+    }
+    ,
+    {
+      "id": 3,
+      "userId":3,
+      "bookId":3,
+      "comment":"Helpful accessibility tips and checklists.",
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "userId":4,
+      "bookId":4,
+      "comment":"Good guidance for recording and streaming lectures.",
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "userId":5,
+      "bookId":5,
+      "comment":"Quick techniques I started using right away.",
+      "rating": 4
     }
   ]
 }

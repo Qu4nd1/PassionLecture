@@ -33,3 +33,29 @@
 - `resultValue`
 
 ## Tableau des variables pour tout le projet avec sa définition
+
+pour la database : `books` contient
+    "id": int,
+    "userId": int,
+    "title": "string",
+    "categorie": "string",
+    "numberOfPages": int,
+    "extract": "path string",
+    "summary": "string",
+    "writerName": "string",
+    "writerSurname": "string",
+    "editorName": "string",
+    "releaseYear": int,
+    "coverImage": "path string"
+
+pour la database : `users` contient
+    "id": int,
+    "pseudo": "string",
+    "entryDate": "yyyy-dd-mm"
+
+pour la database : `ratings` contient
+      "id": int,
+      "userId": int,
+      "bookId": int,
+      "comment": "string",
+      "rating": int

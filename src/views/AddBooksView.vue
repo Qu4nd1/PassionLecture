@@ -1,4 +1,29 @@
-<script setup></script>
+<script setup>
+import { getGenres } from '@/services/GenreService'
+import { addBook } from '@/services/BookService'
+import { onMounted, ref } from 'vue'
+const book = ref({
+  title: '',
+  writerName: '',
+  editorName: '',
+  releaseYear: '',
+  numberOfPage: '',
+  url: '',
+  summary: '',
+})
+
+const genres = ref([])
+
+onMounted(async () => {
+  const response = await getGenres()
+  console.log(response)
+  genres.value = response.data
+})
+
+async function handleSubmit() {
+  await addBook(book.value)
+}
+</script>
 <template>
   <!doctype html>
   <html lang="fr">
@@ -12,42 +37,54 @@
         <a class="back" href="mes-livres.html">← Retour</a>
         <h1 class="page-title">Ajouter un livre</h1>
         <div class="comment-form">
-          <form>
+          <form @submit.prevent="handleSubmit">
             <div>
-              <label class="field-label">Titre *</label><input class="field-input" required />
+              <label class="field-label">Titre *</label>
+              <input v-model="book.title" type="text" class="field-input" required />
             </div>
             <div>
-              <label class="field-label">Auteur *</label><input class="field-input" required />
+              <label class="field-label">Auteur *</label
+              ><input v-model="book.writerName" type="text" class="field-input" required />
             </div>
-            <div><label class="field-label">Éditeur</label><input class="field-input" /></div>
             <div>
-              <label class="field-label">Date de parution</label
-              ><input class="field-input" placeholder="ex. Juin 1942" />
+              <label class="field-label">Éditeur</label
+              ><input v-model="book.editorName" type="editor" class="field-input" />
+            </div>
+            <div>
+              <label class="field-label">Année de parution</label
+              ><input
+                v-model="book.releaseYear"
+                type="text"
+                class="field-input"
+                placeholder="ex. Juin 1942"
+              />
             </div>
             <div>
               <label class="field-label">Nombre de pages</label
-              ><input class="field-input" type="number" min="0" />
+              ><input v-model="book.numberOfPage" type="text" class="field-input" />
             </div>
             <div>
               <label class="field-label">URL de la couverture</label
-              ><input class="field-input" type="url" />
+              ><input v-model="book.url" class="field-input" type="url" />
             </div>
             <div>
               <label class="field-label">Genre</label
               ><select class="field-select">
-                <option>Roman</option>
-                <option>Science-Fiction</option>
-                <option>Policier</option>
-                <option>Poésie</option>
+                <option v-for="genre in genres">{{ genre }}</option>
               </select>
             </div>
             <div>
-              <label class="field-label">Description</label
-              ><textarea class="field-textarea" rows="4"></textarea>
+              <label class="field-label">Description</label>
+              <textarea
+                v-model="book.summary"
+                type="text"
+                class="field-textarea"
+                rows="4"
+              ></textarea>
             </div>
             <div class="actions">
               <button class="btn-rust" type="submit">Ajouter</button
-              ><a class="btn-ghost" href="mes-livres.html">Annuler</a>
+              ><RouterLink to="/" class="btn-ghost">Annuler</RouterLink>
             </div>
           </form>
         </div>

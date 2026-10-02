@@ -1,9 +1,15 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { deleteMyBook, getMyBooks } from '@/services/BookService'
 import MyBooksPreview from '@/components/MyBookPreview.vue'
 
 const myBooks = ref([])
+const router = useRouter()
+
+function goToUpdate(id) {
+    router.push({ name: 'update-book', params: { id: id } })
+}
 
 async function handleDelete(book) {
   try {
@@ -34,7 +40,7 @@ onMounted(async () => {
         <RouterLink :to="{ name: 'add-book' }">+ Ajouter un livre</RouterLink>
       </button>
     </div>
-    <MyBooksPreview :my-books="myBooks" @handle-delete="handleDelete" />
+    <MyBooksPreview :my-books="myBooks" @handle-delete="handleDelete" @handle-update="goToUpdate" />
   </main>
 </template>
 <style>

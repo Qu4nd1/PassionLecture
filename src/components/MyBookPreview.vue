@@ -2,7 +2,11 @@
 const props = defineProps({
   myBooks: Array,
 })
-const emits = defineEmits(['handle-delete'])
+
+const emits = defineEmits(['handle-delete', 'handle-update'])
+function goToUpdate(id) {
+    emits('handle-update', id)
+}
 function handleDelete(myBook) {
   emits('handle-delete', myBook)
 }
@@ -19,7 +23,7 @@ function handleDelete(myBook) {
         <span class="genre-pill">{{ myBook.categorie }}</span>
       </div>
       <div class="card-actions">
-        <button class="btn-ghost">Modifier</button>
+        <button class="btn-ghost" @click="goToUpdate(myBook.id)">Modifier</button>
         <button class="btn-rust" @click="handleDelete(myBook)">Supprimer</button>
       </div>
     </article>

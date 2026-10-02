@@ -90,7 +90,7 @@ async function submit() {
             <option>Science-Fiction</option>
             <option>Policier</option>
             <option>Poésie</option>
-            <option>Education</option>
+            <option>Educations</option>
             </select>
         </div>
         <div>

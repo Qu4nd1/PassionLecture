@@ -59,3 +59,7 @@ export const updateBook = (id, bookData) => {
   }
   return apiClient.put(`/booksBackend/${id}`, bookData)
 }
+
+export const addBook = (book) => {
+  return apiClient.post('/books/', book)
+}

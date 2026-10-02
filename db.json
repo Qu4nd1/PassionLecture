@@ -120,5 +120,12 @@
       "comment": "Quick techniques I started using right away.",
       "rating": 4
     }
+  ],
+  "genres": [
+    "Roman",
+    "Science-Fiction",
+    "Policier",
+    "Poésie",
+    "Manga"
   ]
 }

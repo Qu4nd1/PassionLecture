@@ -1,15 +1,13 @@
 <script setup>
-import { getBook } from '@/services/BookService'
-import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { getBooks } from '@/services/BookService'
+import { onMounted, ref } from 'vue'
 
-const route = useRoute()
-const book = ref(null)
+const books = ref({})
 
 onMounted(async () => {
   try {
-    const response = await getBook(route.params.id)
-    book.value = response.data
+    const response = await getBooks()
+    books.value = response.data
   } finally {
   }
 })
@@ -21,100 +19,77 @@ onMounted(async () => {
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Détail du livre - Bibliothèque</title>
+      <title>Catalogue - Bibliothèque</title>
       <link rel="stylesheet" href="css/common.css" />
-      <link rel="stylesheet" href="css/livre-detail.css" />
+      <link rel="stylesheet" href="css/catalogue.css" />
     </head>
     <body>
       <main class="page">
-        <a class="back" href="catalogue.html">← Retour</a>
-        <div class="detail-layout">
-          <div>
-            <div class="cover">
-              <img
-                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
-                alt="La Promesse de l'Aube"
-              />
-            </div>
-            <a
-              class="btn-outline"
-              style="width: 100%; justify-content: center; margin-top: 1rem"
-              href="#"
-              >Lire un extrait</a
-            >
-          </div>
-          <div>
-            <span class="genre-pill">Roman</span>
-            <h1 class="detail-title">La Promesse de l'Aube</h1>
-            <p class="author">Romain Gary</p>
-            <p class="description">
-              Un portrait bouleversant de l'amour maternel et de la quête d'un idéal impossible.
-              Romain Gary retrace son enfance tumultueuse en Europe et sa relation extraordinaire
-              avec sa mère.
-            </p>
-            <dl class="meta">
-              <div>
-                <dt>Date de parution</dt>
-                <dd>Mars 1960</dd>
-              </div>
-              <div>
-                <dt>N° de pages</dt>
-                <dd>378</dd>
-              </div>
-              <div>
-                <dt>Éditeur</dt>
-                <dd>Gallimard</dd>
-              </div>
-              <div>
-                <dt>Catégorie</dt>
-                <dd>Roman</dd>
-              </div>
-            </dl>
-          </div>
+        <header class="catalog-header">
+          <h1>Catalogue</h1>
+          <p>8 ouvrages — 5 genres</p>
+        </header>
+        <div class="filters">
+          <a class="active" href="#">Tous</a><a href="#roman">Roman</a
+          ><a href="#sf">Science-Fiction</a><a href="#policier">Policier</a
+          ><a href="#poesie">Poésie</a>
         </div>
-        <section>
-          <div class="comments-header">
-            <h2>Commentaires (2)</h2>
-            <span>★★★★★ 4.5 / 5</span>
+        <section class="genre-section">
+          <div class="genre-header">
+            <h2>Tous les ouvrages</h2>
+            <span>8 ouvrage(s)</span>
           </div>
-          <article class="comment-item">
-            <div class="comment-top">
-              <div class="avatar">J</div>
-              <strong>Jean Paul Dupond</strong><span class="date">12 sept. 2026</span>
-            </div>
-            <p>Un chef-d'œuvre absolu. L'un des plus beaux livres de la littérature française.</p>
-          </article>
-          <article class="comment-item">
-            <div class="comment-top">
-              <div class="avatar">G</div>
-              <strong>Géraldine Grégoire</strong><span class="date">8 sept. 2026</span>
-            </div>
-            <p>Émouvant et universel. Le portrait de la mère est d'une justesse bouleversante.</p>
-          </article>
-          <div class="comment-form">
-            <h3>Laisser un avis</h3>
-            <form>
-              <div>
-                <label class="field-label">Votre note</label
-                ><select class="field-select">
-                  <option>5</option>
-                  <option>4</option>
-                  <option>3</option>
-                  <option>2</option>
-                  <option>1</option>
-                  <option>0</option>
-                </select>
+          <div class="grid">
+            <a class="book" href="livre-detail.html"
+              ><div class="cover">
+                <img
+                  src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
+                  alt="La Promesse de l'Aube"
+                />
               </div>
-              <div>
-                <label class="field-label">Votre commentaire</label
-                ><textarea
-                  class="field-textarea"
-                  rows="3"
-                  placeholder="Partagez votre avis sur ce livre…"
-                ></textarea>
+              <p class="title">La Promesse de l'Aube</p>
+              <p class="author">Romain Gary</p>
+              <p class="rating">★ 4.5</p></a
+            ><a class="book" href="livre-detail.html"
+              ><div class="cover">
+                <img
+                  src="https://images.unsplash.com/photo-1614544048536-0d28bb00236c?w=400&h=560&fit=crop&auto=format"
+                  alt="Dune"
+                />
               </div>
-              <button class="btn-rust">Publier</button>
-            </form>
+              <p class="title">Dune</p>
+              <p class="author">Frank Herbert</p>
+              <p class="rating">★ 5.0</p></a
+            ><a class="book" href="livre-detail.html"
+              ><div class="cover">
+                <img
+                  src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop&auto=format"
+                  alt="Le Meurtre de Roger Ackroyd"
+                />
+              </div>
+              <p class="title">Le Meurtre de Roger Ackroyd</p>
+              <p class="author">Agatha Christie</p></a
+            ><a class="book" href="livre-detail.html"
+              ><div class="cover">
+                <img
+                  src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=560&fit=crop&auto=format"
+                  alt="Les Fleurs du Mal"
+                />
+              </div>
+              <p class="title">Les Fleurs du Mal</p>
+              <p class="author">Charles Baudelaire</p>
+              <p class="rating">★ 5.0</p></a
+            ><a class="book" href="livre-detail.html"
+              ><div class="cover">
+                <img
+                  src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop&auto=format"
+                  alt="L'Étranger"
+                />
+              </div>
+              <p class="title">L'Étranger</p>
+              <p class="author">Albert Camus</p>
+              <p class="rating">★ 5.0</p></a
+            >
           </div>
         </section>
       </main>
@@ -357,95 +332,76 @@ select {
 }
 </style>
 <style scoped>
-.detail-layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
+.catalog-header {
+  margin-bottom: 2rem;
 }
-.detail-title {
+.catalog-header h1 {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: 2.75rem;
-  line-height: 1.1;
-  margin: 0.75rem 0 0.5rem;
-}
-.description {
-  color: var(--color-ink-light);
-  line-height: 1.75;
-  margin: 1.5rem 0;
-}
-.meta {
-  border-top: 1px solid var(--color-border);
-}
-.meta div {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 1rem;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--color-border);
-}
-.meta dt {
-  color: var(--color-dust);
-}
-.meta dd {
+  font-size: 2.5rem;
   margin: 0;
 }
+.catalog-header p {
+  color: var(--color-dust);
+}
 
-.comments-header {
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+.filters a {
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  text-decoration: none;
+  color: var(--color-ink-light);
+}
+.filters a.active {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  border-color: var(--color-ink);
+}
+
+.genre-section {
+  margin-bottom: 3.5rem;
+}
+.genre-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1.25rem;
 }
-.comments-header h2 {
+.genre-header h2 {
   font-family: var(--font-display);
   font-weight: 400;
 }
-.comment-item {
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--color-border);
-}
-.comment-top {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--color-wash);
-}
-.date {
+.genre-header span {
   color: var(--color-dust);
   font-size: 0.8125rem;
 }
-.comment-item p {
-  color: var(--color-ink-light);
-  line-height: 1.6;
-}
-.comment-form {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.4rem;
-}
-.comment-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
 
-@media (max-width: 700px) {
-  .detail-layout {
-    grid-template-columns: 1fr;
-  }
-  .detail-layout > div:first-child {
-    max-width: 180px;
-  }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1.5rem;
+}
+.book {
+  text-decoration: none;
+}
+.book .title {
+  font-family: var(--font-display);
+  margin: 0.65rem 0 0.2rem;
+}
+.book .author,
+.book .rating {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+.book .rating {
+  color: var(--color-rust);
+  margin-top: 0.25rem;
 }
 </style>

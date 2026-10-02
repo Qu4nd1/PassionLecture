@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import BooksView from '@/views/BooksView.vue'
+import BooksCatalogueView from '@/views/BooksCatalogueView.vue'
 import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
@@ -13,7 +13,7 @@ const router = createRouter({
     {
       path: '/booksFrontend',
       name: 'books',
-      component: BooksView,
+      component: BooksCatalogueView,
     },
     {
       path: '/books/:id',

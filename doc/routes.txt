@@ -1,0 +1,9 @@
+Verbe HTTP          URI             Fournir JSON?           Retourner JSON?
+GET                 /books/         NON                     OUI [{}] (Accéder à la liste de livres)
+GET                 /books/:id      NON                     OUI {} (Accéder à un livre)
+POST                /books/         OUI {}                  NON (Ajouter un livre)
+PUT                 /books/:id      OUI {}                  NON (Modifier un livre)
+DELETE              /books/:id      NON                     NON (Supprimer un livre)
+POST                /account/       OUI {}                  NON (Création de compte)
+GET                 /account/:id    NON                     OUI (Validation de compte)
+PUT                 /account/:id    OUI                     NON (Modification de compte) 

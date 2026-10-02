@@ -7,8 +7,6 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Accueil - Bibliothèque</title>
-      <link rel="stylesheet" href="css/common.css" />
-      <link rel="stylesheet" href="css/index.css" />
     </head>
     <body>
       <main class="page">
@@ -50,8 +48,9 @@
               <div class="book-card-meta">
                 <span class="genre-pill">Roman</span><span class="rating">★ 4.5/5</span>
               </div>
-            </div></a
-          ><a class="book-card" href="livre-detail.html"
+            </div>
+          </a>
+          <a class="book-card" href="livre-detail.html"
             ><div class="book-card-cover">
               <img
                 src="https://images.unsplash.com/photo-1614544048536-0d28bb00236c?w=400&h=560&fit=crop&auto=format"
@@ -68,8 +67,9 @@
               <div class="book-card-meta">
                 <span class="genre-pill">Science-Fiction</span><span class="rating">★ 5.0/5</span>
               </div>
-            </div></a
-          ><a class="book-card" href="livre-detail.html"
+            </div>
+          </a>
+          <a class="book-card" href="livre-detail.html"
             ><div class="book-card-cover">
               <img
                 src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop&auto=format"
@@ -85,8 +85,9 @@
               <div class="book-card-meta">
                 <span class="genre-pill">Policier</span>
               </div>
-            </div></a
-          ><a class="book-card" href="livre-detail.html"
+            </div>
+          </a>
+          <a class="book-card" href="livre-detail.html"
             ><div class="book-card-cover">
               <img
                 src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=560&fit=crop&auto=format"
@@ -102,9 +103,10 @@
               <div class="book-card-meta">
                 <span class="genre-pill">Poésie</span><span class="rating">★ 5.0/5</span>
               </div>
-            </div></a
-          ><a class="book-card" href="livre-detail.html"
-            ><div class="book-card-cover">
+            </div>
+          </a>
+          <a class="book-card" href="livre-detail.html">
+            <div class="book-card-cover">
               <img
                 src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop&auto=format"
                 alt="L'Étranger"
@@ -117,8 +119,8 @@
               <div class="book-card-meta">
                 <span class="genre-pill">Roman</span><span class="rating">★ 5.0/5</span>
               </div>
-            </div></a
-          >
+            </div>
+          </a>
         </section>
       </main>
     </body>

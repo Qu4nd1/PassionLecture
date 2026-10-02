@@ -6,8 +6,6 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Mes livres - Bibliothèque</title>
-      <link rel="stylesheet" href="css/common.css" />
-      <link rel="stylesheet" href="css/mes-livres.css" />
     </head>
     <body>
       <main class="page">
@@ -16,7 +14,9 @@
             <h1 class="page-title">Mes livres</h1>
             <p>4 ouvrage(s) ajouté(s)</p>
           </div>
-          <a class="btn-rust" href="ajouter-livre.html">+ Ajouter un livre</a>
+          <button class="btn-rust">
+            <RouterLink :to="{ name: 'add-book' }">+ Ajouter un livre</RouterLink>
+          </button>
         </div>
         <div class="card-grid">
           <article class="card">

@@ -2,12 +2,12 @@
 <template>
   <main class="nav-root">
     <div class="nav-inner">
-      <a class="nav-logo" href="index.html">Bibliothèque</a>
+      <RouterLink :to="{ name: 'home' }">Bibliothèque</RouterLink>
       <nav class="nav-links">
-        <a class="nav-link" href="index.html">Accueil</a>
-        <a class="nav-link" href="catalogue.html">Catalogue</a>
-        <a class="nav-link" href="mes-livres.html">Mes livres</a>
-        <a class="nav-auth-btn" href="connexion.html">Se connecter</a>
+        <RouterLink :to="{ name: 'home' }">Accueil</RouterLink>
+        <RouterLink :to="{ name: 'books' }">Catalogue</RouterLink>
+        <RouterLink :to="{ name: 'myBooks' }">Mes livres</RouterLink>
+        <RouterLink :to="{ name: 'login' }">Se connecter</RouterLink>
       </nav>
     </div>
   </main>

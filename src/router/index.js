@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView.vue'
 import AddBooksView from '@/views/AddBooksView.vue'
 import LogInView from '@/views/LogInView.vue'
 import MyBooksView from '@/views/MyBooksView.vue'
+import UpdateBookView from '@/views/UpdateBookView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +40,11 @@ const router = createRouter({
       name: 'myBooks',
       component: MyBooksView,
     },
+    {
+      path: '/myBooks/update/:id',
+      name: 'update-book',
+      component: () => import('../views/UpdateBookView.vue'),
+    }
   ],
 })
 

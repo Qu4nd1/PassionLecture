@@ -55,6 +55,146 @@
       "editorName": "Assessment Works",
       "releaseYear": 2019,
       "coverImage": "public/images/assessment-techniques.jpg"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "title": "La Promesse de l'Aube",
+      "categorie": "Roman",
+      "numberOfPages": 400,
+      "extract": "/extracts/la-promesse-de-l-aube.pdf",
+      "summary": "Romain Gary raconte son enfance et l'amour absolu de sa mère, qui place en lui toutes ses ambitions.",
+      "writerName": "Romain",
+      "writerSurname": "Gary",
+      "editorName": "Gallimard",
+      "releaseYear": 1960,
+      "coverImage": "/images/covers/la-promesse-de-l-aube.jpg"
+    },
+    {
+      "id": 7,
+      "userId": 2,
+      "title": "L'Étranger",
+      "categorie": "Roman",
+      "numberOfPages": 186,
+      "extract": "/extracts/l-etranger.pdf",
+      "summary": "Meursault, indifférent au monde qui l'entoure, commet un meurtre sur une plage d'Alger et fait face à son procès.",
+      "writerName": "Albert",
+      "writerSurname": "Camus",
+      "editorName": "Gallimard",
+      "releaseYear": 1942,
+      "coverImage": "/images/covers/l-etranger.jpg"
+    },
+    {
+      "id": 8,
+      "userId": 3,
+      "title": "Dune",
+      "categorie": "Science-Fiction",
+      "numberOfPages": 412,
+      "extract": "/extracts/dune.pdf",
+      "summary": "Sur la planète désertique Arrakis, le jeune Paul Atréides se retrouve au cœur d'une lutte pour le contrôle de l'épice.",
+      "writerName": "Frank",
+      "writerSurname": "Herbert",
+      "editorName": "Chilton Books",
+      "releaseYear": 1965,
+      "coverImage": "/images/covers/dune.jpg"
+    },
+    {
+      "id": 9,
+      "userId": 4,
+      "title": "Fahrenheit 451",
+      "categorie": "Science-Fiction",
+      "numberOfPages": 158,
+      "extract": "/extracts/fahrenheit-451.pdf",
+      "summary": "Dans une société où les livres sont interdits, le pompier Montag, chargé de les brûler, commence à remettre son métier en question.",
+      "writerName": "Ray",
+      "writerSurname": "Bradbury",
+      "editorName": "Ballantine Books",
+      "releaseYear": 1953,
+      "coverImage": "/images/covers/fahrenheit-451.jpg"
+    },
+    {
+      "id": 10,
+      "userId": 5,
+      "title": "Le Meurtre de Roger Ackroyd",
+      "categorie": "Policier",
+      "numberOfPages": 288,
+      "extract": "/extracts/le-meurtre-de-roger-ackroyd.pdf",
+      "summary": "Dans le village de King's Abbot, Hercule Poirot enquête sur la mort d'un riche notable et démêle les secrets de son entourage.",
+      "writerName": "Agatha",
+      "writerSurname": "Christie",
+      "editorName": "Collins Crime Club",
+      "releaseYear": 1926,
+      "coverImage": "/images/covers/le-meurtre-de-roger-ackroyd.jpg"
+    },
+    {
+      "id": 11,
+      "userId": 1,
+      "title": "Le Chien des Baskerville",
+      "categorie": "Policier",
+      "numberOfPages": 256,
+      "extract": "/extracts/le-chien-des-baskerville.pdf",
+      "summary": "Sherlock Holmes et le docteur Watson enquêtent sur une légende de chien spectral qui hante la famille Baskerville.",
+      "writerName": "Arthur",
+      "writerSurname": "Conan Doyle",
+      "editorName": "George Newnes",
+      "releaseYear": 1902,
+      "coverImage": "/images/covers/le-chien-des-baskerville.jpg"
+    },
+    {
+      "id": 12,
+      "userId": 2,
+      "title": "Les Fleurs du Mal",
+      "categorie": "Poésie",
+      "numberOfPages": 252,
+      "extract": "/extracts/les-fleurs-du-mal.pdf",
+      "summary": "Recueil majeur de Baudelaire qui explore la beauté, le spleen, l'amour et la mort dans le Paris du XIXe siècle.",
+      "writerName": "Charles",
+      "writerSurname": "Baudelaire",
+      "editorName": "Poulet-Malassis",
+      "releaseYear": 1857,
+      "coverImage": "/images/covers/les-fleurs-du-mal.jpg"
+    },
+    {
+      "id": 13,
+      "userId": 3,
+      "title": "Alcools",
+      "categorie": "Poésie",
+      "numberOfPages": 160,
+      "extract": "/extracts/alcools.pdf",
+      "summary": "Recueil d'Apollinaire qui mêle tradition et modernité, sans ponctuation, autour de l'amour, du souvenir et du temps qui passe.",
+      "writerName": "Guillaume",
+      "writerSurname": "Apollinaire",
+      "editorName": "Mercure de France",
+      "releaseYear": 1913,
+      "coverImage": "/images/covers/alcools.jpg"
+    },
+    {
+      "id": 14,
+      "userId": 4,
+      "title": "One Piece, Tome 1",
+      "categorie": "Manga",
+      "numberOfPages": 208,
+      "extract": "/extracts/one-piece-tome-1.pdf",
+      "summary": "Luffy, un jeune garçon au corps élastique, part en mer pour devenir le roi des pirates et trouver le trésor One Piece.",
+      "writerName": "Eiichiro",
+      "writerSurname": "Oda",
+      "editorName": "Shueisha",
+      "releaseYear": 1997,
+      "coverImage": "/images/covers/one-piece-tome-1.jpg"
+    },
+    {
+      "id": 15,
+      "userId": 5,
+      "title": "Naruto, Tome 1",
+      "categorie": "Manga",
+      "numberOfPages": 192,
+      "extract": "/extracts/naruto-tome-1.pdf",
+      "summary": "Naruto, un jeune ninja rejeté par son village, rêve de devenir Hokage pour être enfin reconnu de tous.",
+      "writerName": "Masashi",
+      "writerSurname": "Kishimoto",
+      "editorName": "Shueisha",
+      "releaseYear": 1999,
+      "coverImage": "/images/covers/naruto-tome-1.jpg"
     }
   ],
   "users": [
@@ -121,11 +261,5 @@
       "rating": 4
     }
   ],
-  "genres": [
-    "Roman",
-    "Science-Fiction",
-    "Policier",
-    "Poésie",
-    "Manga"
-  ]
+  "genres": ["Roman", "Science-Fiction", "Policier", "Poésie", "Manga"]
 }

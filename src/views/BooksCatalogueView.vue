@@ -15,85 +15,74 @@ onMounted(async () => {
 </script>
 
 <template>
-  <!doctype html>
-  <html lang="fr">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Catalogue - Bibliothèque</title>
-    </head>
-    <body>
-      <main class="page">
-        <header class="catalog-header">
-          <h1>Catalogue</h1>
-          <p>8 ouvrages — 5 genres</p>
-        </header>
-        <div class="filters">
-          <a class="active" href="#">Tous</a><a href="#roman">Roman</a
-          ><a href="#sf">Science-Fiction</a><a href="#policier">Policier</a
-          ><a href="#poesie">Poésie</a>
-        </div>
-        <section class="genre-section">
-          <div class="genre-header">
-            <h2>Tous les ouvrages</h2>
-            <span>8 ouvrage(s)</span>
+  <main class="page">
+    <header class="catalog-header">
+      <h1>Catalogue</h1>
+      <p>8 ouvrages — 5 genres</p>
+    </header>
+    <div class="filters">
+      <a class="active" href="#">Tous</a><a href="#roman">Roman</a><a href="#sf">Science-Fiction</a
+      ><a href="#policier">Policier</a><a href="#poesie">Poésie</a>
+    </div>
+    <section class="genre-section">
+      <div class="genre-header">
+        <h2>Tous les ouvrages</h2>
+        <span>8 ouvrage(s)</span>
+      </div>
+      <div class="grid">
+        <a class="book" href="livre-detail.html"
+          ><div class="cover">
+            <img
+              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
+              alt="La Promesse de l'Aube"
+            />
           </div>
-          <div class="grid">
-            <a class="book" href="livre-detail.html"
-              ><div class="cover">
-                <img
-                  src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
-                  alt="La Promesse de l'Aube"
-                />
-              </div>
-              <p class="title">La Promesse de l'Aube</p>
-              <p class="author">Romain Gary</p>
-              <p class="rating">★ 4.5</p></a
-            ><a class="book" href="livre-detail.html"
-              ><div class="cover">
-                <img
-                  src="https://images.unsplash.com/photo-1614544048536-0d28bb00236c?w=400&h=560&fit=crop&auto=format"
-                  alt="Dune"
-                />
-              </div>
-              <p class="title">Dune</p>
-              <p class="author">Frank Herbert</p>
-              <p class="rating">★ 5.0</p></a
-            ><a class="book" href="livre-detail.html"
-              ><div class="cover">
-                <img
-                  src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop&auto=format"
-                  alt="Le Meurtre de Roger Ackroyd"
-                />
-              </div>
-              <p class="title">Le Meurtre de Roger Ackroyd</p>
-              <p class="author">Agatha Christie</p></a
-            ><a class="book" href="livre-detail.html"
-              ><div class="cover">
-                <img
-                  src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=560&fit=crop&auto=format"
-                  alt="Les Fleurs du Mal"
-                />
-              </div>
-              <p class="title">Les Fleurs du Mal</p>
-              <p class="author">Charles Baudelaire</p>
-              <p class="rating">★ 5.0</p></a
-            ><a class="book" href="livre-detail.html"
-              ><div class="cover">
-                <img
-                  src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop&auto=format"
-                  alt="L'Étranger"
-                />
-              </div>
-              <p class="title">L'Étranger</p>
-              <p class="author">Albert Camus</p>
-              <p class="rating">★ 5.0</p></a
-            >
+          <p class="title">La Promesse de l'Aube</p>
+          <p class="author">Romain Gary</p>
+          <p class="rating">★ 4.5</p></a
+        ><a class="book" href="livre-detail.html"
+          ><div class="cover">
+            <img
+              src="https://images.unsplash.com/photo-1614544048536-0d28bb00236c?w=400&h=560&fit=crop&auto=format"
+              alt="Dune"
+            />
           </div>
-        </section>
-      </main>
-    </body>
-  </html>
+          <p class="title">Dune</p>
+          <p class="author">Frank Herbert</p>
+          <p class="rating">★ 5.0</p></a
+        ><a class="book" href="livre-detail.html"
+          ><div class="cover">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop&auto=format"
+              alt="Le Meurtre de Roger Ackroyd"
+            />
+          </div>
+          <p class="title">Le Meurtre de Roger Ackroyd</p>
+          <p class="author">Agatha Christie</p></a
+        ><a class="book" href="livre-detail.html"
+          ><div class="cover">
+            <img
+              src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=560&fit=crop&auto=format"
+              alt="Les Fleurs du Mal"
+            />
+          </div>
+          <p class="title">Les Fleurs du Mal</p>
+          <p class="author">Charles Baudelaire</p>
+          <p class="rating">★ 5.0</p></a
+        ><a class="book" href="livre-detail.html"
+          ><div class="cover">
+            <img
+              src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop&auto=format"
+              alt="L'Étranger"
+            />
+          </div>
+          <p class="title">L'Étranger</p>
+          <p class="author">Albert Camus</p>
+          <p class="rating">★ 5.0</p></a
+        >
+      </div>
+    </section>
+  </main>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

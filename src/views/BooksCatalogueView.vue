@@ -9,6 +9,7 @@ onMounted(async () => {
     const response = await getBooks()
     books.value = response.data
   } finally {
+    console.log('Request completed')
   }
 })
 </script>

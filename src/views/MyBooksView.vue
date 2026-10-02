@@ -1,88 +1,41 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+import { deleteMyBook, getMyBooks } from '@/services/BookService'
+import MyBooksPreview from '@/components/MyBookPreview.vue'
+
+const myBooks = ref([])
+
+async function handleDelete(book) {
+  try {
+    await deleteMyBook(book.id)
+    myBooks.value = myBooks.value.filter((b) => b.id !== book.id) // update the UI
+    console.log(`The book named "${book.title}" was deleted successfully!`)
+  } catch (err) {
+    console.error('Failed to delete the book:', err)
+  }
+}
+onMounted(async () => {
+  try {
+    const response = await getMyBooks()
+    myBooks.value = response.data
+  } catch (err) {
+    console.error('Failed to load books:', err)
+  }
+})
+</script>
 <template>
-  <!doctype html>
-  <html lang="fr">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Mes livres - Bibliothèque</title>
-    </head>
-    <body>
-      <main class="page">
-        <div class="mybooks-header">
-          <div>
-            <h1 class="page-title">Mes livres</h1>
-            <p>4 ouvrage(s) ajouté(s)</p>
-          </div>
-          <button class="btn-rust">
-            <RouterLink :to="{ name: 'add-book' }">+ Ajouter un livre</RouterLink>
-          </button>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <a class="cover" href="livre-detail.html"
-              ><img
-                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
-                alt="La Promesse de l'Aube"
-            /></a>
-            <div class="card-info">
-              <p class="title">La Promesse de l'Aube</p>
-              <p class="author">Romain Gary</p>
-              <span class="genre-pill">Roman</span>
-            </div>
-            <div class="card-actions">
-              <a class="btn-ghost" href="#">Modifier</a><a class="btn-rust" href="#">Supprimer</a>
-            </div>
-          </article>
-          <article class="card">
-            <a class="cover" href="livre-detail.html"
-              ><img
-                src="https://images.unsplash.com/photo-1614544048536-0d28bb00236c?w=400&h=560&fit=crop&auto=format"
-                alt="Dune"
-            /></a>
-            <div class="card-info">
-              <p class="title">Dune</p>
-              <p class="author">Frank Herbert</p>
-              <span class="genre-pill">Science-Fiction</span>
-            </div>
-            <div class="card-actions">
-              <a class="btn-ghost" href="#">Modifier</a><a class="btn-rust" href="#">Supprimer</a>
-            </div>
-          </article>
-          <article class="card">
-            <a class="cover" href="livre-detail.html"
-              ><img
-                src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop&auto=format"
-                alt="Le Meurtre de Roger Ackroyd"
-            /></a>
-            <div class="card-info">
-              <p class="title">Le Meurtre de Roger Ackroyd</p>
-              <p class="author">Agatha Christie</p>
-              <span class="genre-pill">Policier</span>
-            </div>
-            <div class="card-actions">
-              <a class="btn-ghost" href="#">Modifier</a><a class="btn-rust" href="#">Supprimer</a>
-            </div>
-          </article>
-          <article class="card">
-            <a class="cover" href="livre-detail.html"
-              ><img
-                src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=560&fit=crop&auto=format"
-                alt="Les Fleurs du Mal"
-            /></a>
-            <div class="card-info">
-              <p class="title">Les Fleurs du Mal</p>
-              <p class="author">Charles Baudelaire</p>
-              <span class="genre-pill">Poésie</span>
-            </div>
-            <div class="card-actions">
-              <a class="btn-ghost" href="#">Modifier</a><a class="btn-rust" href="#">Supprimer</a>
-            </div>
-          </article>
-        </div>
-      </main>
-    </body>
-  </html>
+  <main class="page">
+    <div class="mybooks-header">
+      <div>
+        <h1 class="page-title">Mes livres</h1>
+        <p>{{ myBooks.length }} ouvrage(s) ajouté(s)</p>
+      </div>
+      <button class="btn-rust">
+        <RouterLink :to="{ name: 'add-book' }">+ Ajouter un livre</RouterLink>
+      </button>
+    </div>
+    <MyBooksPreview :my-books="myBooks" @handle-delete="handleDelete" />
+  </main>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');
@@ -204,16 +157,18 @@ select {
 }
 
 .btn-primary,
-.btn-rust,
-.btn-outline,
-.btn-ghost {
+.btn-outline {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1.25rem;
   border-radius: 0.25rem;
+  font: inherit;
   font-size: 0.875rem;
   font-weight: 500;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
   text-decoration: none;
 }
@@ -222,44 +177,11 @@ select {
   color: var(--color-cream);
   border: none;
 }
-.btn-rust {
-  background: var(--color-rust);
-  color: var(--color-surface);
-  border: none;
-}
 .btn-outline {
   background: transparent;
   color: var(--color-ink);
   border: 1.5px solid var(--color-ink);
 }
-.btn-ghost {
-  background: var(--color-wash);
-  color: var(--color-ink-light);
-  border: none;
-}
-.genre-pill {
-  font-size: 0.75rem;
-  color: var(--color-rust);
-  background: #b5452a11;
-  padding: 0.15rem 0.45rem;
-  border-radius: 999px;
-}
-
-.cover {
-  aspect-ratio: 5/7;
-  overflow: hidden;
-  background: var(--color-wash);
-}
-.cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.author,
-.rating {
-  color: var(--color-dust);
-}
-
 /* Champs de formulaire communs */
 .field-input,
 .field-textarea,
@@ -329,32 +251,5 @@ select {
 }
 .mybooks-header p {
   color: var(--color-dust);
-}
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1.5rem;
-}
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.4rem;
-  overflow: hidden;
-}
-.card-info {
-  padding: 1rem;
-}
-.card-info .title {
-  font-family: var(--font-display);
-  margin: 0 0 0.25rem;
-}
-.card-info .author {
-  margin: 0 0 0.65rem;
-  font-size: 0.8125rem;
-}
-.card-actions {
-  display: flex;
-  gap: 0.5rem;
-  padding: 0 1rem 1rem;
 }
 </style>

@@ -71,6 +71,7 @@
       "coverImage": "public/images/assessment-techniques.jpg"
     }
   ],
+
   "users": [
     {
       "id": 1,
@@ -81,8 +82,7 @@
       "id": 2,
       "pseudo": "sophie",
       "entryDate": "2023-08-01"
-    }
-    ,
+    },
     {
       "id": 3,
       "pseudo": "jamiel",
@@ -102,38 +102,37 @@
   "ratings": [
     {
       "id": 1,
-      "userId":1,
-      "bookId":1,
-      "comment":"Insightful and practical — transformed my lectures.",
+      "userId": 1,
+      "bookId": 1,
+      "comment": "Insightful and practical — transformed my lectures.",
       "rating": 5
     },
     {
       "id": 2,
-      "userId":2,
-      "bookId":2,
-      "comment":"Great examples, easy to implement.",
+      "userId": 2,
+      "bookId": 2,
+      "comment": "Great examples, easy to implement.",
       "rating": 4
-    }
-    ,
+    },
     {
       "id": 3,
-      "userId":3,
-      "bookId":3,
-      "comment":"Helpful accessibility tips and checklists.",
+      "userId": 3,
+      "bookId": 3,
+      "comment": "Helpful accessibility tips and checklists.",
       "rating": 5
     },
     {
       "id": 4,
-      "userId":4,
-      "bookId":4,
-      "comment":"Good guidance for recording and streaming lectures.",
+      "userId": 4,
+      "bookId": 4,
+      "comment": "Good guidance for recording and streaming lectures.",
       "rating": 4
     },
     {
       "id": 5,
-      "userId":5,
-      "bookId":5,
-      "comment":"Quick techniques I started using right away.",
+      "userId": 5,
+      "bookId": 5,
+      "comment": "Quick techniques I started using right away.",
       "rating": 4
     }
   ]

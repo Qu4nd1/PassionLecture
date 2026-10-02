@@ -18,8 +18,12 @@
             lisez les avis de la communauté et laissez vos propres commentaires.
           </p>
           <div class="actions">
-            <a class="btn-primary" href="catalogue.html">Explorer le catalogue</a
-            ><a class="btn-outline" href="mes-livres.html">Ajouter un livre</a>
+            <button class="btn-primary">
+              <RouterLink :to="{ name: 'books' }">Explorer le catalogue</RouterLink>
+            </button>
+            <button class="btn-outline">
+              <RouterLink :to="{ name: 'add-book' }">Ajouter un livre</RouterLink>
+            </button>
           </div>
         </section>
         <section class="stats">
@@ -30,7 +34,7 @@
         <section>
           <div class="section-header">
             <h2>Derniers ajouts</h2>
-            <a href="catalogue.html">Voir tout</a>
+            <RouterLink :to="{ name: 'books' }">Voir tout</RouterLink>
           </div>
           <a class="book-card" href="livre-detail.html"
             ><div class="book-card-cover">
@@ -125,7 +129,6 @@
       </main>
     </body>
   </html>
-  <RouterLink :to="{ name: 'books' }">Les livres</RouterLink>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

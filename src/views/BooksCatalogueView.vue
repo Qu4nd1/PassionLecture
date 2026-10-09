@@ -1,9 +1,10 @@
 <script setup>
 import { getBooks } from '@/services/BookService'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
+import BookCataloguePreview from '@/components/BookCataloguePreview.vue'
+import { getGenres } from '@/services/GenreService'
 
 const books = ref({})
-
 onMounted(async () => {
   try {
     const response = await getBooks()
@@ -12,17 +13,59 @@ onMounted(async () => {
     console.log('Request completed')
   }
 })
+
+const genres = ref([])
+onMounted(async () => {
+  try {
+    const response = await getGenres()
+    genres.value = response.data
+  } finally {
+    console.log('Request completed')
+    createGenre()
+  }
+})
+const genreUpdated = ref([])
+function createGenre() {
+  let count = 0
+  genreUpdated.value.push({
+    id: count,
+    name: 'Tout',
+    active: true,
+  })
+  for (let item of genres.value) {
+    count++
+    genreUpdated.value.push({
+      id: count,
+      name: item,
+      active: false,
+    })
+  }
+}
+function updateActiveGenre(id) {
+  for (let item of genreUpdated.value) {
+    if (item.active) {
+      item.active = false
+    }
+  }
+  genreUpdated.value[id].active = true
+
+  console.log('check done')
+}
 </script>
 
 <template>
   <main class="page">
     <header class="catalog-header">
       <h1>Catalogue</h1>
-      <p>8 ouvrages — 5 genres</p>
+      <p>{{ books.length }} ouvrages — {{ genres.length }} genres</p>
     </header>
     <div class="filters">
-      <a class="active" href="#">Tous</a><a href="#roman">Roman</a><a href="#sf">Science-Fiction</a
-      ><a href="#policier">Policier</a><a href="#poesie">Poésie</a>
+      <div v-for="(item, index) in genreUpdated">
+        <button v-if="item.active" class="active" @click="updateActiveGenre(index)">
+          {{ item.name }}
+        </button>
+        <button v-else @click="updateActiveGenre(index)">{{ item.name }}</button>
+      </div>
     </div>
     <section class="genre-section">
       <div class="genre-header">
@@ -30,56 +73,12 @@ onMounted(async () => {
         <span>8 ouvrage(s)</span>
       </div>
       <div class="grid">
-        <a class="book" href="livre-detail.html"
-          ><div class="cover">
-            <img
-              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
-              alt="La Promesse de l'Aube"
-            />
-          </div>
-          <p class="title">La Promesse de l'Aube</p>
-          <p class="author">Romain Gary</p>
-          <p class="rating">★ 4.5</p></a
-        ><a class="book" href="livre-detail.html"
-          ><div class="cover">
-            <img
-              src="https://images.unsplash.com/photo-1614544048536-0d28bb00236c?w=400&h=560&fit=crop&auto=format"
-              alt="Dune"
-            />
-          </div>
-          <p class="title">Dune</p>
-          <p class="author">Frank Herbert</p>
-          <p class="rating">★ 5.0</p></a
-        ><a class="book" href="livre-detail.html"
-          ><div class="cover">
-            <img
-              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop&auto=format"
-              alt="Le Meurtre de Roger Ackroyd"
-            />
-          </div>
-          <p class="title">Le Meurtre de Roger Ackroyd</p>
-          <p class="author">Agatha Christie</p></a
-        ><a class="book" href="livre-detail.html"
-          ><div class="cover">
-            <img
-              src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=560&fit=crop&auto=format"
-              alt="Les Fleurs du Mal"
-            />
-          </div>
-          <p class="title">Les Fleurs du Mal</p>
-          <p class="author">Charles Baudelaire</p>
-          <p class="rating">★ 5.0</p></a
-        ><a class="book" href="livre-detail.html"
-          ><div class="cover">
-            <img
-              src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop&auto=format"
-              alt="L'Étranger"
-            />
-          </div>
-          <p class="title">L'Étranger</p>
-          <p class="author">Albert Camus</p>
-          <p class="rating">★ 5.0</p></a
-        >
+        <BookCataloguePreview
+          v-for="(book, index) in books"
+          :key="book.id"
+          :book="book"
+          :rating="rating"
+        />
       </div>
     </section>
   </main>
@@ -125,57 +124,6 @@ input,
 textarea,
 select {
   font: inherit;
-}
-
-/* Navigation commune */
-.nav-root {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: var(--color-cream);
-  border-bottom: 1px solid var(--color-border);
-}
-.nav-inner {
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  min-height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  text-decoration: none;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.nav-link {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-ink-light);
-  text-decoration: none;
-  border-bottom: 1.5px solid transparent;
-  padding-bottom: 2px;
-}
-.nav-link.active {
-  color: var(--color-rust);
-  border-bottom-color: var(--color-rust);
-}
-.nav-auth-btn {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  padding: 0.375rem 1rem;
-  border-radius: 0.25rem;
-  border: 1.5px solid var(--color-ink);
-  background: transparent;
-  text-decoration: none;
 }
 
 /* Mise en page et éléments réutilisés */
@@ -245,21 +193,6 @@ select {
   border-radius: 999px;
 }
 
-.cover {
-  aspect-ratio: 5/7;
-  overflow: hidden;
-  background: var(--color-wash);
-}
-.cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.author,
-.rating {
-  color: var(--color-dust);
-}
-
 /* Champs de formulaire communs */
 .field-input,
 .field-textarea,
@@ -297,19 +230,6 @@ select {
 .site-footer p {
   margin: 0;
 }
-
-@media (max-width: 700px) {
-  .nav-inner {
-    align-items: flex-start;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    flex-direction: column;
-  }
-  .nav-links {
-    gap: 0.75rem;
-  }
-}
-
 @media (max-width: 640px) {
   .page {
     padding: 2rem 1rem;
@@ -339,19 +259,18 @@ select {
   gap: 0.5rem;
   margin-bottom: 3rem;
 }
-.filters a {
+.filters div button {
   border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: 0.4rem 0.8rem;
   text-decoration: none;
   color: var(--color-ink-light);
 }
-.filters a.active {
+.filters div button.active {
   background: var(--color-ink);
   color: var(--color-cream);
   border-color: var(--color-ink);
 }
-
 .genre-section {
   margin-bottom: 3.5rem;
 }
@@ -375,21 +294,5 @@ select {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 1.5rem;
-}
-.book {
-  text-decoration: none;
-}
-.book .title {
-  font-family: var(--font-display);
-  margin: 0.65rem 0 0.2rem;
-}
-.book .author,
-.book .rating {
-  margin: 0;
-  font-size: 0.8125rem;
-}
-.book .rating {
-  color: var(--color-rust);
-  margin-top: 0.25rem;
 }
 </style>

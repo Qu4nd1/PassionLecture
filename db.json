@@ -106,6 +106,12 @@
       "pseudo": "morganl",
       "mail": "alexm@gmail.com",
       "mdp": "123"
+    },
+    {
+      "pseudo": "nota",
+      "mail": "nota@gmail.com",
+      "mdp": "miau",
+      "id": 6
     }
   ],
   "ratings": [

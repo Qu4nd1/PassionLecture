@@ -81,27 +81,32 @@
     {
       "id": 1,
       "pseudo": "alexm",
-      "entryDate": "2024-05-10"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 2,
       "pseudo": "sophie",
-      "entryDate": "2023-08-01"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 3,
       "pseudo": "jamiel",
-      "entryDate": "2021-11-12"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 4,
       "pseudo": "rajp",
-      "entryDate": "2020-02-20"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 5,
       "pseudo": "morganl",
-      "entryDate": "2019-07-05"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     }
   ],
   "ratings": [

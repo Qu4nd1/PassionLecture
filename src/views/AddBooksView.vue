@@ -25,14 +25,6 @@ async function handleSubmit() {
 }
 </script>
 <template>
-  <!doctype html>
-  <html lang="fr">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Ajouter un livre - Bibliothèque</title>
-    </head>
-    <body>
       <main class="page">
         <a class="back" href="mes-livres.html">← Retour</a>
         <h1 class="page-title">Ajouter un livre</h1>
@@ -56,7 +48,7 @@ async function handleSubmit() {
                 v-model="book.releaseYear"
                 type="text"
                 class="field-input"
-                placeholder="ex. Juin 1942"
+                placeholder="ex. 1942"
               />
             </div>
             <div>
@@ -89,8 +81,6 @@ async function handleSubmit() {
           </form>
         </div>
       </main>
-    </body>
-  </html>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

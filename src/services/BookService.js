@@ -42,25 +42,25 @@ export const deleteMyBook = (id) => {
   return apiClient.delete(`/booksBackend/${id}`)
 }
 
-//fonction de validation des données des livres avant envoi
-export const isBookDataValid = (bookData) => {
-  return mandatoryFields.every((field) => {
-    const value = bookData[field]
-    if (value === undefined || value === null) {
-      return false
-    }
-    if (String(value).trim() === '') {
-      return false
-    }
-    return true
-  })
-}
+// //fonction de validation des données des livres avant envoi
+// export const isBookDataValid = (bookData) => {
+//   return mandatoryFields.every((field) => {
+//     const value = bookData[field]
+//     if (value === undefined || value === null) {
+//       return false
+//     }
+//     if (String(value).trim() === '') {
+//       return false
+//     }
+//     return true
+//   })
+// }
 
 //fonction de update des informations du livre
 export const updateBook = (id, bookData) => {
-  if (!isBookDataValid(bookData)) {
-    throw new Error('Tous les champs doivent être renseignés')
-  }
+  // if (!isBookDataValid(bookData)) {
+  //   throw new Error('Tous les champs doivent être renseignés')
+  // }
   return apiClient.put(`/booksBackend/${id}`, bookData)
 }
 

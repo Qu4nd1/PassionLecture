@@ -67,14 +67,14 @@
       "id": 6
     },
     {
-      "title": "l'oiel de la lune",
+      "id": 7,
+      "title": "l'oeil de la lune",
+      "categorie": "Science-Fiction",
+      "numberOfPages": 290,
+      "summary": "suite du livre sans nom",
       "writerName": "Anonyme",
       "editorName": "LULU",
-      "releaseYear": "2008",
-      "numberOfPage": "290",
-      "url": "",
-      "summary": "suite du livre sans nom",
-      "id": 7
+      "releaseYear": "2008"
     }
   ],
   "users": [

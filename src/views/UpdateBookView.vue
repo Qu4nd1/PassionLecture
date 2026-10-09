@@ -1,5 +1,6 @@
 <script setup>
 import { getBook, updateBook } from '@/services/BookService'
+import { getGenres } from '@/services/GenreService'
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -8,7 +9,7 @@ const router = useRouter()
 const id = Number(route.params.id)
 
 const userId = ref()
-
+const genres = ref([])
 
 const title = ref()
 const categorie = ref()
@@ -21,7 +22,11 @@ const editorName = ref()
 const releaseYear = ref()
 const coverImage = ref()
 
+
+
 onMounted(async () => {
+    const responseGenre = await getGenres()
+    genres.value = responseGenre.data
     const response = await getBook(id)
     const book = response.data
     userId.value = book.userId
@@ -81,16 +86,12 @@ async function submit() {
         </div>
         <div>
             <label class="field-label">URL de la couverture</label
-            ><input class="field-input" type="url" v-model="coverImage" />
+            ><input class="field-input" v-model="coverImage" />
         </div>
         <div>
             <label class="field-label">Genre</label
             ><select class="field-select" v-model="categorie">
-            <option>Roman</option>
-            <option>Science-Fiction</option>
-            <option>Policier</option>
-            <option>Poésie</option>
-            <option>Educations</option>
+            <option v-for="genre in genres">{{ genre }}</option>
             </select>
         </div>
         <div>

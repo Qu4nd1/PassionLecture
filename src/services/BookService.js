@@ -61,5 +61,5 @@ export const updateBook = (id, bookData) => {
 }
 
 export const addBook = (book) => {
-  return apiClient.post('/books/', book)
+  return apiClient.post('/booksBackend/', book)
 }

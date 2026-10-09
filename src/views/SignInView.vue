@@ -1,4 +1,17 @@
-<script setup></script>
+<script setup>
+import { createAcc } from '@/services/userService';
+import {ref} from 'vue'
+
+const account = ref({
+  pseudo: '',
+  mail: '',
+  mdp:''
+})
+
+async function handleSubmit(){
+  await createAcc(account.value)
+}
+</script>
 <template>
   <!doctype html>
   <html lang="fr">
@@ -12,23 +25,23 @@
         <div class="auth-card">
           <p class="logo">Bibliothèque</p>
           <p class="tagline">créez votre compte</p>
-          <form>
+          <form @submit.prevent="handleSubmit">
             <div>
-              <label class="field-label">Prénom & Nom</label><input class="field-input" required />
+              <label class="field-label">Pseudo</label><input v-model="account.pseudo" class="field-input" required />
             </div>
             <div>
               <label class="field-label">Adresse e-mail</label
-              ><input type="email" class="field-input" required />
+              ><input v-model="account.mail" type="email" class="field-input" required />
             </div>
             <div>
               <label class="field-label">Mot de passe</label
-              ><input type="password" class="field-input" required />
+              ><input v-model="account.mdp" type="password" class="field-input" required />
             </div>
             <div>
               <label class="field-label">Confirmer le mot de passe</label
               ><input type="password" class="field-input" required />
             </div>
-            <button class="btn-rust" type="submit">Créer mon compte</button>
+            <button @class="btn-rust" type="submit">Créer mon compte</button>
           </form>
         </div>
       </main>

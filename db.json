@@ -12,7 +12,7 @@
       "writerSurname": "Martinez",
       "editorName": "Scholarly Press",
       "releaseYear": 2024,
-      "coverImage": "public/images/passionate-lecture.jpg"
+      "coverImage": "public/images/the_passionate_lecture.jpg"
     },
     {
       "id": 3,
@@ -26,7 +26,7 @@
       "writerSurname": "Lopez",
       "editorName": "Inclusive Press",
       "releaseYear": 2021,
-      "coverImage": "public/images/inclusive-learning.jpg"
+      "coverImage": "public/images/designing_inclusive_learning.jpg"
     },
     {
       "id": 4,
@@ -40,7 +40,7 @@
       "writerSurname": "Patel",
       "editorName": "Digital Campus",
       "releaseYear": 2020,
-      "coverImage": "public/images/lecture-to-screen.jpg"
+      "coverImage": "public/images/lecture_to_screen.jpg"
     },
     {
       "id": 5,
@@ -54,7 +54,7 @@
       "writerSurname": "Lee",
       "editorName": "Assessment Works",
       "releaseYear": 2019,
-      "coverImage": "public/images/assessment-techniques.jpg"
+      "coverImage": "public/images/classroom_assessment_techniques.jpg"
     }
   ],
   "users": [

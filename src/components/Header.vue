@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { getGenres } from '@/services/GenreService'
+import { onMounted, ref } from 'vue'
+const genres = ref([])
+</script>
 <template>
   <main class="nav-root">
     <div class="nav-inner">

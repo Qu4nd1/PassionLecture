@@ -1,0 +1,5 @@
+démarrage du code avec :
+    - npm run dev
+
+démarrage de la base de données avec :
+    - npx json-server --watch db.json

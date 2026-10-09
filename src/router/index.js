@@ -16,7 +16,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/booksFrontend',
+      path: '/books',
       name: 'books',
       component: BooksCatalogueView,
     },
@@ -50,7 +50,7 @@ const router = createRouter({
       path: '/myBooks/update/:id',
       name: 'update-book',
       component: () => import('../views/UpdateBookView.vue'),
-    }
+    },
   ],
 })
 

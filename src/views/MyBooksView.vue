@@ -8,7 +8,7 @@ const myBooks = ref([])
 const router = useRouter()
 
 function goToUpdate(id) {
-    router.push({ name: 'update-book', params: { id: id } })
+  router.push({ name: 'update-book', params: { id: id } })
 }
 
 async function handleDelete(book) {

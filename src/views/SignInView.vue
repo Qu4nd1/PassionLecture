@@ -13,14 +13,6 @@ async function handleSubmit(){
 }
 </script>
 <template>
-  <!doctype html>
-  <html lang="fr">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Inscription - Bibliothèque</title>
-    </head>
-    <body>
       <main class="auth-page">
         <div class="auth-card">
           <p class="logo">Bibliothèque</p>
@@ -45,8 +37,6 @@ async function handleSubmit(){
           </form>
         </div>
       </main>
-    </body>
-  </html>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

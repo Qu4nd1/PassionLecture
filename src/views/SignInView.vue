@@ -1,39 +1,42 @@
-<script setup></script>
+<script setup>
+import { createAcc } from '@/services/userService';
+import {ref} from 'vue'
+
+const account = ref({
+  pseudo: '',
+  mail: '',
+  mdp:''
+})
+
+async function handleSubmit(){
+  await createAcc(account.value)
+}
+</script>
 <template>
-  <!doctype html>
-  <html lang="fr">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Inscription - Bibliothèque</title>
-    </head>
-    <body>
       <main class="auth-page">
         <div class="auth-card">
           <p class="logo">Bibliothèque</p>
           <p class="tagline">créez votre compte</p>
-          <form>
+          <form @submit.prevent="handleSubmit">
             <div>
-              <label class="field-label">Prénom & Nom</label><input class="field-input" required />
+              <label class="field-label">Pseudo</label><input v-model="account.pseudo" class="field-input" required />
             </div>
             <div>
               <label class="field-label">Adresse e-mail</label
-              ><input type="email" class="field-input" required />
+              ><input v-model="account.mail" type="email" class="field-input" required />
             </div>
             <div>
               <label class="field-label">Mot de passe</label
-              ><input type="password" class="field-input" required />
+              ><input v-model="account.mdp" type="password" class="field-input" required />
             </div>
             <div>
               <label class="field-label">Confirmer le mot de passe</label
               ><input type="password" class="field-input" required />
             </div>
-            <button class="btn-rust" type="submit">Créer mon compte</button>
+            <button @class="btn-rust" type="submit">Créer mon compte</button>
           </form>
         </div>
       </main>
-    </body>
-  </html>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

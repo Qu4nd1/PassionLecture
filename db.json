@@ -12,7 +12,7 @@
       "writerSurname": "Martinez",
       "editorName": "Scholarly Press",
       "releaseYear": 2024,
-      "coverImage": "public/images/passionate-lecture.jpg"
+      "coverImage": "public/images/the_passionate_lecture.jpg"
     },
     {
       "id": 3,
@@ -26,7 +26,7 @@
       "writerSurname": "Lopez",
       "editorName": "Inclusive Press",
       "releaseYear": 2021,
-      "coverImage": "public/images/inclusive-learning.jpg"
+      "coverImage": "public/images/designing_inclusive_learning.jpg"
     },
     {
       "id": 4,
@@ -40,7 +40,7 @@
       "writerSurname": "Patel",
       "editorName": "Digital Campus",
       "releaseYear": 2020,
-      "coverImage": "public/images/lecture-to-screen.jpg"
+      "coverImage": "public/images/lecture_to_screen.jpg"
     },
     {
       "id": 5,
@@ -195,33 +195,59 @@
       "editorName": "Shueisha",
       "releaseYear": 1999,
       "coverImage": "/images/covers/naruto-tome-1.jpg"
+      "coverImage": "public/images/classroom_assessment_techniques.jpg"
+    },
+    {
+      "title": "Le Livre Sans Nom",
+      "writerName": "Anonyme",
+      "editorName": "LULU",
+      "releaseYear": "juillet 2006",
+      "numberOfPage": "284",
+      "url": "",
+      "summary": "Santa Mondega, une ville du sud des États-Unis proche de la frontière mexicaine, oubliée du reste du monde, est connue des habitants pour être la ville la plus dangereuse du monde. Un homme étrange encapuchonné débarque au Tapioca, un bar local de Santa Mondega. L'étranger commande un bourbon et après une démonstration de l'hospitalité locale, le boit et... tout ce que l'on sait est que les seuls survivants sont l'étranger et Sanchez, patron du bar. Loin de là, deux moines d'Hubal, nommés Kyle et Peto, reçoivent une mission : ils doivent se rendre à Santa Mondega pour aller récupérer une pierre magique, « l'Œil de la Lune », dérobée au père supérieur de leur ordre religieux et qui est censée apporter l'invulnérabilité à celui qui la porte. À Santa Mondega, une jeune femme, Jessica, se réveille dans une maison et apprend qu'elle sort d'un coma de cinq ans après avoir été victime d'une tentative de meurtre, tandis que l'inspecteur du paranormal Miles Jensen se rend à Santa Mondega pour mener son enquête.",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "title": "l'oeil de la lune",
+      "categorie": "Science-Fiction",
+      "numberOfPages": 290,
+      "summary": "suite du livre sans nom",
+      "writerName": "Anonyme",
+      "editorName": "LULU",
+      "releaseYear": "2008"
     }
   ],
   "users": [
     {
       "id": 1,
       "pseudo": "alexm",
-      "entryDate": "2024-05-10"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 2,
       "pseudo": "sophie",
-      "entryDate": "2023-08-01"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 3,
       "pseudo": "jamiel",
-      "entryDate": "2021-11-12"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 4,
       "pseudo": "rajp",
-      "entryDate": "2020-02-20"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     },
     {
       "id": 5,
       "pseudo": "morganl",
-      "entryDate": "2019-07-05"
+      "mail": "alexm@gmail.com",
+      "mdp": "123"
     }
   ],
   "ratings": [

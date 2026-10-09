@@ -1,4 +1,5 @@
-<script setup></script>
+<script setup>
+</script>
 <template>
   <!doctype html>
   <html lang="fr">
@@ -24,7 +25,7 @@
             <button class="btn-rust" type="submit">Se connecter</button>
           </form>
           <p style="text-align: center; margin-top: 1rem; color: var(--color-dust)">
-            Pas encore de compte ? <a href="inscription.html">S'inscrire</a>
+            Pas encore de compte ? <RouterLink :to="{ name: 'sign-in' }">S'inscrire</RouterLink>
           </p>
         </div>
       </main>

@@ -57,14 +57,13 @@
       "coverImage": "public/images/classroom_assessment_techniques.jpg"
     },
     {
+      "id": 6,
       "title": "Le Livre Sans Nom",
+      "categorie": "Science-Fiction",
+      "summary": "Santa Mondega, une ville du sud des États-Unis proche de la frontière mexicaine, oubliée du reste du monde, est connue des habitants pour être la ville la plus dangereuse du monde",
       "writerName": "Anonyme",
       "editorName": "LULU",
-      "releaseYear": "juillet 2006",
-      "numberOfPage": "284",
-      "url": "",
-      "summary": "Santa Mondega, une ville du sud des États-Unis proche de la frontière mexicaine, oubliée du reste du monde, est connue des habitants pour être la ville la plus dangereuse du monde. Un homme étrange encapuchonné débarque au Tapioca, un bar local de Santa Mondega. L'étranger commande un bourbon et après une démonstration de l'hospitalité locale, le boit et... tout ce que l'on sait est que les seuls survivants sont l'étranger et Sanchez, patron du bar. Loin de là, deux moines d'Hubal, nommés Kyle et Peto, reçoivent une mission : ils doivent se rendre à Santa Mondega pour aller récupérer une pierre magique, « l'Œil de la Lune », dérobée au père supérieur de leur ordre religieux et qui est censée apporter l'invulnérabilité à celui qui la porte. À Santa Mondega, une jeune femme, Jessica, se réveille dans une maison et apprend qu'elle sort d'un coma de cinq ans après avoir été victime d'une tentative de meurtre, tandis que l'inspecteur du paranormal Miles Jensen se rend à Santa Mondega pour mener son enquête.",
-      "id": 6
+      "releaseYear": "juillet 2006"
     },
     {
       "id": 7,

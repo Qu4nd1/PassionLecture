@@ -1,14 +1,37 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted, computed } from 'vue'
+import { getBooks, getRatings } from '@/services/BookService'
+import { getGenres } from '@/services/GenreService'
+
+const books = ref([])
+const genres = ref([])
+const ratings = ref([])
+
+const latestBooks = computed(() => {
+  return books.value.slice(-5).reverse()
+})
+
+const avgRatings = (id) => {
+  const bookRatings = ratings.value.filter(r => r.bookId === id)
+  if(bookRatings.length === 0) return null
+  const totalRating = bookRatings.reduce((sum, r) => sum + r.rating, 0)
+  return (totalRating/ bookRatings.length).toFixed(1)
+}
+
+onMounted(async () => {
+  const responseGenre = await getGenres()
+  console.log(responseGenre)
+  genres.value = responseGenre.data
+  const responseRating = await getRatings()
+  console.log(responseRating)
+  ratings.value = responseRating.data
+  const responseBooks = await getBooks()
+  console.log(responseBooks)
+  books.value = responseBooks.data
+})
+</script>
 
 <template>
-  <!doctype html>
-  <html lang="fr">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Accueil - Bibliothèque</title>
-    </head>
-    <body>
       <main class="page">
         <section class="hero">
           <h1>Votre bibliothèque<br /><em>partagée</em></h1>
@@ -27,108 +50,32 @@
           </div>
         </section>
         <section class="stats">
-          <div><strong>8</strong><span>Ouvrages</span></div>
-          <div><strong>5</strong><span>Genres</span></div>
-          <div><strong>7</strong><span>Commentaires</span></div>
+          <div><strong>{{books.length}}</strong><span>Ouvrages</span></div>
+          <div><strong>{{genres.length}}</strong><span>Genres</span></div>
+          <div><strong>{{ratings.length}}</strong><span>Commentaires</span></div>
         </section>
         <section>
           <div class="section-header">
             <h2>Derniers ajouts</h2>
             <RouterLink :to="{ name: 'books' }">Voir tout</RouterLink>
           </div>
-          <a class="book-card" href="livre-detail.html"
+          <a class="book-card" v-for="book in latestBooks" :key="book.id"
             ><div class="book-card-cover">
               <img
-                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
-                alt="La Promesse de l'Aube"
+                :src="book.coverImage" :alt="book.title"
               />
             </div>
             <div>
-              <h3 class="book-card-title">La Promesse de l'Aube</h3>
-              <p class="book-card-author">Romain Gary</p>
-              <p class="book-card-excerpt">
-                Un portrait bouleversant de l'amour maternel et de la quête d'un idéal impossible.
-              </p>
+              <h3 class="book-card-title">{{ book.title }}</h3>
+              <p class="book-card-author">{{book.writerName}} {{ book.writerSurname }}</p>
+              <p class="book-card-excerpt">{{ book.summary }}</p>
               <div class="book-card-meta">
-                <span class="genre-pill">Roman</span><span class="rating">★ 4.5/5</span>
-              </div>
-            </div>
-          </a>
-          <a class="book-card" href="livre-detail.html"
-            ><div class="book-card-cover">
-              <img
-                src="https://images.unsplash.com/photo-1614544048536-0d28bb00236c?w=400&h=560&fit=crop&auto=format"
-                alt="Dune"
-              />
-            </div>
-            <div>
-              <h3 class="book-card-title">Dune</h3>
-              <p class="book-card-author">Frank Herbert</p>
-              <p class="book-card-excerpt">
-                Sur la planète désertique Arrakis, Paul Atréides voit sa famille trahie et doit
-                embrasser son destin.
-              </p>
-              <div class="book-card-meta">
-                <span class="genre-pill">Science-Fiction</span><span class="rating">★ 5.0/5</span>
-              </div>
-            </div>
-          </a>
-          <a class="book-card" href="livre-detail.html"
-            ><div class="book-card-cover">
-              <img
-                src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop&auto=format"
-                alt="Le Meurtre de Roger Ackroyd"
-              />
-            </div>
-            <div>
-              <h3 class="book-card-title">Le Meurtre de Roger Ackroyd</h3>
-              <p class="book-card-author">Agatha Christie</p>
-              <p class="book-card-excerpt">
-                Hercule Poirot se retrouve mêlé au meurtre de Roger Ackroyd.
-              </p>
-              <div class="book-card-meta">
-                <span class="genre-pill">Policier</span>
-              </div>
-            </div>
-          </a>
-          <a class="book-card" href="livre-detail.html"
-            ><div class="book-card-cover">
-              <img
-                src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=560&fit=crop&auto=format"
-                alt="Les Fleurs du Mal"
-              />
-            </div>
-            <div>
-              <h3 class="book-card-title">Les Fleurs du Mal</h3>
-              <p class="book-card-author">Charles Baudelaire</p>
-              <p class="book-card-excerpt">
-                Un recueil fondateur qui explore le spleen, l'idéal et la modernité.
-              </p>
-              <div class="book-card-meta">
-                <span class="genre-pill">Poésie</span><span class="rating">★ 5.0/5</span>
-              </div>
-            </div>
-          </a>
-          <a class="book-card" href="livre-detail.html">
-            <div class="book-card-cover">
-              <img
-                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=560&fit=crop&auto=format"
-                alt="L'Étranger"
-              />
-            </div>
-            <div>
-              <h3 class="book-card-title">L'Étranger</h3>
-              <p class="book-card-author">Albert Camus</p>
-              <p class="book-card-excerpt">Un roman phare de l'absurde camusien.</p>
-              <div class="book-card-meta">
-                <span class="genre-pill">Roman</span><span class="rating">★ 5.0/5</span>
+                <span class="genre-pill">{{book.categorie}}</span><span class="rating" v-if="avgRatings(book.id)">★ {{avgRatings(book.id)}}/5</span>
               </div>
             </div>
           </a>
         </section>
       </main>
-    </body>
-  </html>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

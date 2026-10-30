@@ -12,4 +12,6 @@ const apiClient = axios.create({
 export const createAcc = (user) => {
   return apiClient.post('/users', user)
 }
-
+export const getUsers = () => {
+  return apiClient.get('/users')
+}

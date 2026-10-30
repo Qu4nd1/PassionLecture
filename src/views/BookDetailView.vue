@@ -1,19 +1,30 @@
 <script setup>
 import { getBook } from '@/services/BookService'
+import { getRatings } from '@/services/RatingService'
+import CommentList from '@/components/CommentList.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const book = ref({})
-
+const ratings = ref([])
+const error = ref(false)
 onMounted(async () => {
   try {
     console.log(route.params.id)
     const response = await getBook(route.params.id)
     book.value = response.data
-    console.log(book.value)
   } catch (e) {
-    console.error('Livre introuvable', e)
+    console.error('Book not found', e)
+    error.value = true
+  }
+})
+onMounted(async () => {
+  try {
+    const response = await getRatings()
+    ratings.value = response.data
+  } catch (e) {
+    console.error('Ratings not found', e)
     error.value = true
   }
 })
@@ -65,24 +76,7 @@ onMounted(async () => {
       </div>
     </div>
     <section>
-      <div class="comments-header">
-        <h2>Commentaires (2)</h2>
-        <span>★★★★★ 4.5 / 5</span>
-      </div>
-      <article class="comment-item">
-        <div class="comment-top">
-          <div class="avatar">J</div>
-          <strong>Jean Paul Dupond</strong><span class="date">12 sept. 2026</span>
-        </div>
-        <p>Un chef-d'œuvre absolu. L'un des plus beaux livres de la littérature française.</p>
-      </article>
-      <article class="comment-item">
-        <div class="comment-top">
-          <div class="avatar">G</div>
-          <strong>Géraldine Grégoire</strong><span class="date">8 sept. 2026</span>
-        </div>
-        <p>Émouvant et universel. Le portrait de la mère est d'une justesse bouleversante.</p>
-      </article>
+      <CommentList />
       <div class="comment-form">
         <h3>Laisser un avis</h3>
         <form>
@@ -380,42 +374,6 @@ select {
 }
 .meta dd {
   margin: 0;
-}
-
-.comments-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--color-border);
-}
-.comments-header h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-}
-.comment-item {
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--color-border);
-}
-.comment-top {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--color-wash);
-}
-.date {
-  color: var(--color-dust);
-  font-size: 0.8125rem;
-}
-.comment-item p {
-  color: var(--color-ink-light);
-  line-height: 1.6;
 }
 .comment-form {
   margin-top: 2rem;

@@ -31,10 +31,6 @@ export const getMyBooks = () => {
   return apiClient.get('/booksBackend')
 }
 
-export const getRatings = () => {
-  return apiClient.get('/ratings')
-}
-
 export const getBook = (id) => {
   return apiClient.get(`/booksBackend/${id}`)
 }

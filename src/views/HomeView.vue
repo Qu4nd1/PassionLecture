@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { getBooks, getRatings } from '@/services/BookService'
+import { getBooks } from '@/services/BookService'
+import { getRatings } from '@/services/RatingService'
 import { getGenres } from '@/services/GenreService'
 
 const books = ref([])
@@ -12,10 +13,10 @@ const latestBooks = computed(() => {
 })
 
 const avgRatings = (id) => {
-  const bookRatings = ratings.value.filter(r => r.bookId === id)
-  if(bookRatings.length === 0) return null
+  const bookRatings = ratings.value.filter((r) => r.bookId === id)
+  if (bookRatings.length === 0) return null
   const totalRating = bookRatings.reduce((sum, r) => sum + r.rating, 0)
-  return (totalRating/ bookRatings.length).toFixed(1)
+  return (totalRating / bookRatings.length).toFixed(1)
 }
 
 onMounted(async () => {
@@ -32,50 +33,58 @@ onMounted(async () => {
 </script>
 
 <template>
-      <main class="page">
-        <section class="hero">
-          <h1>Votre bibliothèque<br /><em>partagée</em></h1>
-          <p>
-            Bibliothèque est un espace pour partager, découvrir et discuter autour des livres qui
-            nous marquent. Ajoutez vos œuvres de chevet, explorez le catalogue par genre littéraire,
-            lisez les avis de la communauté et laissez vos propres commentaires.
-          </p>
-          <div class="actions">
-            <button class="btn-primary">
-              <RouterLink :to="{ name: 'books' }">Explorer le catalogue</RouterLink>
-            </button>
-            <button class="btn-outline">
-              <RouterLink :to="{ name: 'add-book' }">Ajouter un livre</RouterLink>
-            </button>
+  <main class="page">
+    <section class="hero">
+      <h1>Votre bibliothèque<br /><em>partagée</em></h1>
+      <p>
+        Bibliothèque est un espace pour partager, découvrir et discuter autour des livres qui nous
+        marquent. Ajoutez vos œuvres de chevet, explorez le catalogue par genre littéraire, lisez
+        les avis de la communauté et laissez vos propres commentaires.
+      </p>
+      <div class="actions">
+        <button class="btn-primary">
+          <RouterLink :to="{ name: 'books' }">Explorer le catalogue</RouterLink>
+        </button>
+        <button class="btn-outline">
+          <RouterLink :to="{ name: 'add-book' }">Ajouter un livre</RouterLink>
+        </button>
+      </div>
+    </section>
+    <section class="stats">
+      <div>
+        <strong>{{ books.length }}</strong
+        ><span>Ouvrages</span>
+      </div>
+      <div>
+        <strong>{{ genres.length }}</strong
+        ><span>Genres</span>
+      </div>
+      <div>
+        <strong>{{ ratings.length }}</strong
+        ><span>Commentaires</span>
+      </div>
+    </section>
+    <section>
+      <div class="section-header">
+        <h2>Derniers ajouts</h2>
+        <RouterLink :to="{ name: 'books' }">Voir tout</RouterLink>
+      </div>
+      <a class="book-card" v-for="book in latestBooks" :key="book.id"
+        ><div class="book-card-cover">
+          <img :src="book.coverImage" :alt="book.title" />
+        </div>
+        <div>
+          <h3 class="book-card-title">{{ book.title }}</h3>
+          <p class="book-card-author">{{ book.writerName }} {{ book.writerSurname }}</p>
+          <p class="book-card-excerpt">{{ book.summary }}</p>
+          <div class="book-card-meta">
+            <span class="genre-pill">{{ book.categorie }}</span
+            ><span class="rating" v-if="avgRatings(book.id)">★ {{ avgRatings(book.id) }}/5</span>
           </div>
-        </section>
-        <section class="stats">
-          <div><strong>{{books.length}}</strong><span>Ouvrages</span></div>
-          <div><strong>{{genres.length}}</strong><span>Genres</span></div>
-          <div><strong>{{ratings.length}}</strong><span>Commentaires</span></div>
-        </section>
-        <section>
-          <div class="section-header">
-            <h2>Derniers ajouts</h2>
-            <RouterLink :to="{ name: 'books' }">Voir tout</RouterLink>
-          </div>
-          <a class="book-card" v-for="book in latestBooks" :key="book.id"
-            ><div class="book-card-cover">
-              <img
-                :src="book.coverImage" :alt="book.title"
-              />
-            </div>
-            <div>
-              <h3 class="book-card-title">{{ book.title }}</h3>
-              <p class="book-card-author">{{book.writerName}} {{ book.writerSurname }}</p>
-              <p class="book-card-excerpt">{{ book.summary }}</p>
-              <div class="book-card-meta">
-                <span class="genre-pill">{{book.categorie}}</span><span class="rating" v-if="avgRatings(book.id)">★ {{avgRatings(book.id)}}/5</span>
-              </div>
-            </div>
-          </a>
-        </section>
-      </main>
+        </div>
+      </a>
+    </section>
+  </main>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

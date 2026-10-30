@@ -3,6 +3,7 @@
   <main class="site-footer">
     <div class="site-footer-inner">
       <p>Bibliothèque — partagez ce qui vous a marqué</p>
+      <p>Créateur: Arnaud, Kentin, Sarangan</p>
       <p>© 2026</p>
     </div>
   </main>

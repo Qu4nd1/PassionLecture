@@ -4,13 +4,13 @@ import { onMounted, ref } from 'vue'
 import BookCatalogueGenrePrevew from '@/components/BookCatalogueGenrePrevew.vue'
 import { getGenres } from '@/services/GenreService'
 
-const books = ref({})
+const books = ref([])
 onMounted(async () => {
   try {
     const response = await getBooks()
     books.value = response.data
   } finally {
-    console.log('Request completed')
+    console.log('Request completed : Books loaded')
   }
 })
 
@@ -20,7 +20,7 @@ onMounted(async () => {
     const response = await getGenres()
     genres.value = response.data
   } finally {
-    console.log('Request completed')
+    console.log('Request completed : Genres loaded')
     createGenre()
   }
 })
@@ -56,15 +56,12 @@ function updateActiveGenre(id) {
   console.log('check done')
 }
 function filterBooks(genre) {
-  console.log(genre)
   let filteredBooks = []
   for (let book of books.value) {
-    console.log(book.categorie === genre)
     if (book.categorie === genre) {
       filteredBooks.push(book)
     }
   }
-  console.log(filteredBooks)
   return filteredBooks
 }
 </script>

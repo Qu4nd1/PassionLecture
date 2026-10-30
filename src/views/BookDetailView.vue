@@ -4,120 +4,112 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const book = ref(null)
+const book = ref({})
 
 onMounted(async () => {
   try {
+    console.log(route.params.id)
     const response = await getBook(route.params.id)
     book.value = response.data
-  } finally {
+    console.log(book.value)
+  } catch (e) {
+    console.error('Livre introuvable', e)
+    error.value = true
   }
 })
 </script>
 
 <template>
-  <!doctype html>
-  <html lang="fr">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Détail du livre - Bibliothèque</title>
-    </head>
-    <body>
-      <main class="page">
-        <a class="back" href="catalogue.html">← Retour</a>
-        <div class="detail-layout">
-          <div>
-            <div class="cover">
-              <img
-                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format"
-                alt="La Promesse de l'Aube"
-              />
-            </div>
-            <a
-              class="btn-outline"
-              style="width: 100%; justify-content: center; margin-top: 1rem"
-              href="#"
-              >Lire un extrait</a
-            >
-          </div>
-          <div>
-            <span class="genre-pill">Roman</span>
-            <h1 class="detail-title">La Promesse de l'Aube</h1>
-            <p class="author">Romain Gary</p>
-            <p class="description">
-              Un portrait bouleversant de l'amour maternel et de la quête d'un idéal impossible.
-              Romain Gary retrace son enfance tumultueuse en Europe et sa relation extraordinaire
-              avec sa mère.
-            </p>
-            <dl class="meta">
-              <div>
-                <dt>Date de parution</dt>
-                <dd>Mars 1960</dd>
-              </div>
-              <div>
-                <dt>N° de pages</dt>
-                <dd>378</dd>
-              </div>
-              <div>
-                <dt>Éditeur</dt>
-                <dd>Gallimard</dd>
-              </div>
-              <div>
-                <dt>Catégorie</dt>
-                <dd>Roman</dd>
-              </div>
-            </dl>
-          </div>
+  <main class="page">
+    <RouterLink :to="{ name: 'books' }">← Retour</RouterLink>
+    <div class="detail-layout">
+      <div>
+        <div class="cover">
+          <img :src="book.coverImage" :alt="book.title" />
         </div>
-        <section>
-          <div class="comments-header">
-            <h2>Commentaires (2)</h2>
-            <span>★★★★★ 4.5 / 5</span>
+        <a
+          class="btn-outline"
+          style="width: 100%; justify-content: center; margin-top: 1rem"
+          :href="book.extract"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Lire un extrait
+        </a>
+      </div>
+      <div>
+        <span class="genre-pill">{{ book.categorie }}</span>
+        <h1 class="detail-title">{{ book.title }}</h1>
+        <p class="author">{{ book.writerName }} {{ book.writerSurname }}</p>
+        <p class="description">
+          {{ book.summary }}
+        </p>
+        <dl class="meta">
+          <div>
+            <dt>Année de parution</dt>
+            <dd>{{ book.releaseYear }}</dd>
           </div>
-          <article class="comment-item">
-            <div class="comment-top">
-              <div class="avatar">J</div>
-              <strong>Jean Paul Dupond</strong><span class="date">12 sept. 2026</span>
-            </div>
-            <p>Un chef-d'œuvre absolu. L'un des plus beaux livres de la littérature française.</p>
-          </article>
-          <article class="comment-item">
-            <div class="comment-top">
-              <div class="avatar">G</div>
-              <strong>Géraldine Grégoire</strong><span class="date">8 sept. 2026</span>
-            </div>
-            <p>Émouvant et universel. Le portrait de la mère est d'une justesse bouleversante.</p>
-          </article>
-          <div class="comment-form">
-            <h3>Laisser un avis</h3>
-            <form>
-              <div>
-                <label class="field-label">Votre note</label
-                ><select class="field-select">
-                  <option>5</option>
-                  <option>4</option>
-                  <option>3</option>
-                  <option>2</option>
-                  <option>1</option>
-                  <option>0</option>
-                </select>
-              </div>
-              <div>
-                <label class="field-label">Votre commentaire</label
-                ><textarea
-                  class="field-textarea"
-                  rows="3"
-                  placeholder="Partagez votre avis sur ce livre…"
-                ></textarea>
-              </div>
-              <button class="btn-rust">Publier</button>
-            </form>
+          <div>
+            <dt>N° de pages</dt>
+            <dd>{{ book.numberOfPages }}</dd>
           </div>
-        </section>
-      </main>
-    </body>
-  </html>
+          <div>
+            <dt>Éditeur</dt>
+            <dd>{{ book.editorName }}</dd>
+          </div>
+          <div>
+            <dt>Catégorie</dt>
+            <dd>{{ book.categorie }}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <section>
+      <div class="comments-header">
+        <h2>Commentaires (2)</h2>
+        <span>★★★★★ 4.5 / 5</span>
+      </div>
+      <article class="comment-item">
+        <div class="comment-top">
+          <div class="avatar">J</div>
+          <strong>Jean Paul Dupond</strong><span class="date">12 sept. 2026</span>
+        </div>
+        <p>Un chef-d'œuvre absolu. L'un des plus beaux livres de la littérature française.</p>
+      </article>
+      <article class="comment-item">
+        <div class="comment-top">
+          <div class="avatar">G</div>
+          <strong>Géraldine Grégoire</strong><span class="date">8 sept. 2026</span>
+        </div>
+        <p>Émouvant et universel. Le portrait de la mère est d'une justesse bouleversante.</p>
+      </article>
+      <div class="comment-form">
+        <h3>Laisser un avis</h3>
+        <form>
+          <div>
+            <label class="field-label">Votre note</label
+            ><select class="field-select">
+              <option>5</option>
+              <option>4</option>
+              <option>3</option>
+              <option>2</option>
+              <option>1</option>
+              <option>0</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Votre commentaire</label
+            ><textarea
+              class="field-textarea"
+              rows="3"
+              placeholder="Partagez votre avis sur ce livre…"
+            ></textarea>
+          </div>
+          <button class="btn-rust">Publier</button>
+        </form>
+      </div>
+    </section>
+  </main>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');

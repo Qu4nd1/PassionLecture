@@ -6,6 +6,7 @@ import LogInView from '@/views/LogInView.vue'
 import MyBooksView from '@/views/MyBooksView.vue'
 import UpdateBookView from '@/views/UpdateBookView.vue'
 import SignInView from '@/views/SignInView.vue'
+import BookDetailView from '../views/BookDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,8 +24,9 @@ const router = createRouter({
     {
       path: '/books/:id',
       name: 'book-detail',
-      component: () => import('../views/BookDetailView.vue'),
+      //component: () => import('../views/BookDetailView.vue'),
       // props: true, // Permet de recevoir l'id directement comme une prop
+      component: BookDetailView,
     },
     {
       path: '/myBooks/add',

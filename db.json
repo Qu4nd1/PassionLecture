@@ -58,14 +58,6 @@
     },
     {
       "id": 6,
-<<<<<<< HEAD
-      "title": "Le Livre Sans Nom",
-      "categorie": "Science-Fiction",
-      "summary": "Santa Mondega, une ville du sud des États-Unis proche de la frontière mexicaine, oubliée du reste du monde, est connue des habitants pour être la ville la plus dangereuse du monde",
-      "writerName": "Anonyme",
-      "editorName": "LULU",
-      "releaseYear": "juillet 2006"
-=======
       "userId": 1,
       "title": "La Promesse de l'Aube",
       "categorie": "Roman",
@@ -77,7 +69,6 @@
       "editorName": "Gallimard",
       "releaseYear": 1960,
       "coverImage": "/images/covers/la-promesse-de-l-aube.jpg"
->>>>>>> 492524a05d98c435e517e1551d47345bec67a572
     },
     {
       "id": 7,

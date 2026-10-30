@@ -1,7 +1,7 @@
 <script setup>
 import { getBooks } from '@/services/BookService'
-import { onMounted, ref, computed } from 'vue'
-import BookCataloguePreview from '@/components/BookCataloguePreview.vue'
+import { onMounted, ref } from 'vue'
+import BookCatalogueGenrePrevew from '@/components/BookCatalogueGenrePrevew.vue'
 import { getGenres } from '@/services/GenreService'
 
 const books = ref({})
@@ -24,32 +24,48 @@ onMounted(async () => {
     createGenre()
   }
 })
-const genreUpdated = ref([])
+const genresUpdated = ref([])
+const genresForFilter = ref([])
+const activeGenre = ref('Tout')
 function createGenre() {
   let count = 0
-  genreUpdated.value.push({
+  genresUpdated.value.push({
     id: count,
     name: 'Tout',
     active: true,
   })
   for (let item of genres.value) {
     count++
-    genreUpdated.value.push({
+    genresUpdated.value.push({
       id: count,
       name: item,
       active: false,
     })
   }
+  genresForFilter.value = genresUpdated.value.slice(1, genresUpdated.value.length)
 }
 function updateActiveGenre(id) {
-  for (let item of genreUpdated.value) {
+  for (let item of genresUpdated.value) {
     if (item.active) {
       item.active = false
     }
   }
-  genreUpdated.value[id].active = true
+  genresUpdated.value[id].active = true
+  activeGenre.value = genresUpdated.value[id].name
 
   console.log('check done')
+}
+function filterBooks(genre) {
+  console.log(genre)
+  let filteredBooks = []
+  for (let book of books.value) {
+    console.log(book.categorie === genre)
+    if (book.categorie === genre) {
+      filteredBooks.push(book)
+    }
+  }
+  console.log(filteredBooks)
+  return filteredBooks
 }
 </script>
 
@@ -60,27 +76,23 @@ function updateActiveGenre(id) {
       <p>{{ books.length }} ouvrages — {{ genres.length }} genres</p>
     </header>
     <div class="filters">
-      <div v-for="(item, index) in genreUpdated">
+      <div v-for="(item, index) in genresUpdated">
         <button v-if="item.active" class="active" @click="updateActiveGenre(index)">
           {{ item.name }}
         </button>
         <button v-else @click="updateActiveGenre(index)">{{ item.name }}</button>
       </div>
     </div>
-    <section class="genre-section">
-      <div class="genre-header">
-        <h2>Tous les ouvrages</h2>
-        <span>8 ouvrage(s)</span>
-      </div>
-      <div class="grid">
-        <BookCataloguePreview
-          v-for="(book, index) in books"
-          :key="book.id"
-          :book="book"
-          :rating="rating"
-        />
-      </div>
-    </section>
+    <div v-if="activeGenre === 'Tout'">
+      <BookCatalogueGenrePrevew
+        v-for="genre in genresForFilter"
+        :books="filterBooks(genre.name)"
+        :genre="genre.name"
+      />
+    </div>
+    <div v-else>
+      <BookCatalogueGenrePrevew :books="filterBooks(activeGenre)" :genre="activeGenre" />
+    </div>
   </main>
 </template>
 <style>
@@ -185,13 +197,6 @@ select {
   color: var(--color-ink-light);
   border: none;
 }
-.genre-pill {
-  font-size: 0.75rem;
-  color: var(--color-rust);
-  background: #b5452a11;
-  padding: 0.15rem 0.45rem;
-  border-radius: 999px;
-}
 
 /* Champs de formulaire communs */
 .field-input,
@@ -257,7 +262,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .filters div button {
   border: 1px solid var(--color-border);
@@ -270,29 +275,5 @@ select {
   background: var(--color-ink);
   color: var(--color-cream);
   border-color: var(--color-ink);
-}
-.genre-section {
-  margin-bottom: 3.5rem;
-}
-.genre-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 1.25rem;
-}
-.genre-header h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-}
-.genre-header span {
-  color: var(--color-dust);
-  font-size: 0.8125rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 1.5rem;
 }
 </style>

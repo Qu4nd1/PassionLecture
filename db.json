@@ -6,13 +6,15 @@
       "title": "The Passionate Lecture",
       "categorie": "Education",
       "numberOfPages": 328,
-      "extract": "public/extracts/passionate-lecture.pdf",
+      "extract": "/extract/passionate-lecture.pdf",
       "summary": "A practical guide to designing and delivering engaging lectures that inspire students to learn actively.",
       "writerName": "Alex",
       "writerSurname": "Martinez",
       "editorName": "Scholarly Press",
       "releaseYear": 2024,
-      "coverImage": "public/images/the_passionate_lecture.jpg"
+      "coverImage": "public/images/the_passionate_lecture.jpg",
+      "averageRating": 4.3,
+      "ratingsCount": 4
     },
     {
       "id": 3,
@@ -20,13 +22,15 @@
       "title": "Designing Inclusive Learning",
       "categorie": "Education",
       "numberOfPages": 210,
-      "extract": "public/extracts/inclusive-learning.pdf",
+      "extract": "/extract/inclusive-learning.pdf",
       "summary": "Guidelines and practices to make learning environments accessible and welcoming for all students.",
       "writerName": "Jamie",
       "writerSurname": "Lopez",
       "editorName": "Inclusive Press",
       "releaseYear": 2021,
-      "coverImage": "public/images/designing_inclusive_learning.jpg"
+      "coverImage": "public/images/designing_inclusive_learning.jpg",
+      "averageRating": 4.8,
+      "ratingsCount": 4
     },
     {
       "id": 4,
@@ -34,13 +38,15 @@
       "title": "Lecture to Screen",
       "categorie": "Media",
       "numberOfPages": 198,
-      "extract": "public/extracts/lecture-to-screen.pdf",
+      "extract": "/extract/lecture-to-screen.pdf",
       "summary": "Adapting traditional lectures for effective online and recorded delivery.",
       "writerName": "Raj",
       "writerSurname": "Patel",
       "editorName": "Digital Campus",
       "releaseYear": 2020,
-      "coverImage": "public/images/lecture_to_screen.jpg"
+      "coverImage": "public/images/lecture_to_screen.jpg",
+      "averageRating": 4,
+      "ratingsCount": 4
     },
     {
       "id": 5,
@@ -48,13 +54,15 @@
       "title": "Classroom Assessment Techniques",
       "categorie": "Education",
       "numberOfPages": 176,
-      "extract": "public/extracts/assessment-techniques.pdf",
+      "extract": "/extract/assessment-techniques.pdf",
       "summary": "Quick, formative assessment methods instructors can use to gauge student learning.",
       "writerName": "Morgan",
       "writerSurname": "Lee",
       "editorName": "Assessment Works",
       "releaseYear": 2019,
-      "coverImage": "public/images/classroom_assessment_techniques.jpg"
+      "coverImage": "public/images/classroom_assessment_techniques.jpg",
+      "averageRating": 4,
+      "ratingsCount": 4
     },
     {
       "id": 6,
@@ -62,13 +70,15 @@
       "title": "La Promesse de l'Aube",
       "categorie": "Roman",
       "numberOfPages": 400,
-      "extract": "/extracts/la-promesse-de-l-aube.pdf",
+      "extract": "/extract/la-promesse-de-l-aube.pdf",
       "summary": "Romain Gary raconte son enfance et l'amour absolu de sa mère, qui place en lui toutes ses ambitions.",
       "writerName": "Romain",
       "writerSurname": "Gary",
       "editorName": "Gallimard",
       "releaseYear": 1960,
-      "coverImage": "/images/covers/la-promesse-de-l-aube.jpg"
+      "coverImage": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=560&fit=crop&auto=format",
+      "averageRating": null,
+      "ratingsCount": 0
     },
     {
       "id": 7,
@@ -76,13 +86,15 @@
       "title": "L'Étranger",
       "categorie": "Roman",
       "numberOfPages": 186,
-      "extract": "/extracts/l-etranger.pdf",
+      "extract": "/extract/l-etranger.pdf",
       "summary": "Meursault, indifférent au monde qui l'entoure, commet un meurtre sur une plage d'Alger et fait face à son procès.",
       "writerName": "Albert",
       "writerSurname": "Camus",
       "editorName": "Gallimard",
       "releaseYear": 1942,
-      "coverImage": "/images/covers/l-etranger.jpg"
+      "coverImage": "/images/covers/l-etranger.jpg",
+      "averageRating": 4.5,
+      "ratingsCount": 4
     },
     {
       "id": 8,
@@ -90,13 +102,15 @@
       "title": "Dune",
       "categorie": "Science-Fiction",
       "numberOfPages": 412,
-      "extract": "/extracts/dune.pdf",
+      "extract": "/extract/dune.pdf",
       "summary": "Sur la planète désertique Arrakis, le jeune Paul Atréides se retrouve au cœur d'une lutte pour le contrôle de l'épice.",
       "writerName": "Frank",
       "writerSurname": "Herbert",
       "editorName": "Chilton Books",
       "releaseYear": 1965,
-      "coverImage": "/images/covers/dune.jpg"
+      "coverImage": "/images/covers/dune.jpg",
+      "averageRating": 4.6,
+      "ratingsCount": 5
     },
     {
       "id": 9,
@@ -104,13 +118,15 @@
       "title": "Fahrenheit 451",
       "categorie": "Science-Fiction",
       "numberOfPages": 158,
-      "extract": "/extracts/fahrenheit-451.pdf",
+      "extract": "/extract/fahrenheit-451.pdf",
       "summary": "Dans une société où les livres sont interdits, le pompier Montag, chargé de les brûler, commence à remettre son métier en question.",
       "writerName": "Ray",
       "writerSurname": "Bradbury",
       "editorName": "Ballantine Books",
       "releaseYear": 1953,
-      "coverImage": "/images/covers/fahrenheit-451.jpg"
+      "coverImage": "/images/covers/fahrenheit-451.jpg",
+      "averageRating": 4.5,
+      "ratingsCount": 4
     },
     {
       "id": 10,
@@ -118,13 +134,15 @@
       "title": "Le Meurtre de Roger Ackroyd",
       "categorie": "Policier",
       "numberOfPages": 288,
-      "extract": "/extracts/le-meurtre-de-roger-ackroyd.pdf",
+      "extract": "/extract/le-meurtre-de-roger-ackroyd.pdf",
       "summary": "Dans le village de King's Abbot, Hercule Poirot enquête sur la mort d'un riche notable et démêle les secrets de son entourage.",
       "writerName": "Agatha",
       "writerSurname": "Christie",
       "editorName": "Collins Crime Club",
       "releaseYear": 1926,
-      "coverImage": "/images/covers/le-meurtre-de-roger-ackroyd.jpg"
+      "coverImage": "/images/covers/le-meurtre-de-roger-ackroyd.jpg",
+      "averageRating": 4.8,
+      "ratingsCount": 4
     },
     {
       "id": 11,
@@ -132,13 +150,15 @@
       "title": "Le Chien des Baskerville",
       "categorie": "Policier",
       "numberOfPages": 256,
-      "extract": "/extracts/le-chien-des-baskerville.pdf",
+      "extract": "/extract/le-chien-des-baskerville.pdf",
       "summary": "Sherlock Holmes et le docteur Watson enquêtent sur une légende de chien spectral qui hante la famille Baskerville.",
       "writerName": "Arthur",
       "writerSurname": "Conan Doyle",
       "editorName": "George Newnes",
       "releaseYear": 1902,
-      "coverImage": "/images/covers/le-chien-des-baskerville.jpg"
+      "coverImage": "/images/covers/le-chien-des-baskerville.jpg",
+      "averageRating": 4.3,
+      "ratingsCount": 4
     },
     {
       "id": 12,
@@ -146,13 +166,15 @@
       "title": "Les Fleurs du Mal",
       "categorie": "Poésie",
       "numberOfPages": 252,
-      "extract": "/extracts/les-fleurs-du-mal.pdf",
+      "extract": "/extract/les-fleurs-du-mal.pdf",
       "summary": "Recueil majeur de Baudelaire qui explore la beauté, le spleen, l'amour et la mort dans le Paris du XIXe siècle.",
       "writerName": "Charles",
       "writerSurname": "Baudelaire",
       "editorName": "Poulet-Malassis",
       "releaseYear": 1857,
-      "coverImage": "/images/covers/les-fleurs-du-mal.jpg"
+      "coverImage": "/images/covers/les-fleurs-du-mal.jpg",
+      "averageRating": 4.5,
+      "ratingsCount": 4
     },
     {
       "id": 13,
@@ -160,13 +182,15 @@
       "title": "Alcools",
       "categorie": "Poésie",
       "numberOfPages": 160,
-      "extract": "/extracts/alcools.pdf",
+      "extract": "/extract/alcools.pdf",
       "summary": "Recueil d'Apollinaire qui mêle tradition et modernité, sans ponctuation, autour de l'amour, du souvenir et du temps qui passe.",
       "writerName": "Guillaume",
       "writerSurname": "Apollinaire",
       "editorName": "Mercure de France",
       "releaseYear": 1913,
-      "coverImage": "/images/covers/alcools.jpg"
+      "coverImage": "/images/covers/alcools.jpg",
+      "averageRating": 4,
+      "ratingsCount": 4
     },
     {
       "id": 14,
@@ -174,13 +198,15 @@
       "title": "One Piece, Tome 1",
       "categorie": "Manga",
       "numberOfPages": 208,
-      "extract": "/extracts/one-piece-tome-1.pdf",
+      "extract": "/extract/one-piece-tome-1.pdf",
       "summary": "Luffy, un jeune garçon au corps élastique, part en mer pour devenir le roi des pirates et trouver le trésor One Piece.",
       "writerName": "Eiichiro",
       "writerSurname": "Oda",
       "editorName": "Shueisha",
       "releaseYear": 1997,
-      "coverImage": "/images/covers/one-piece-tome-1.jpg"
+      "coverImage": "/images/covers/one-piece-tome-1.jpg",
+      "averageRating": 4.6,
+      "ratingsCount": 5
     },
     {
       "id": 15,
@@ -188,13 +214,15 @@
       "title": "Naruto, Tome 1",
       "categorie": "Manga",
       "numberOfPages": 192,
-      "extract": "/extracts/naruto-tome-1.pdf",
+      "extract": "/extract/naruto-tome-1.pdf",
       "summary": "Naruto, un jeune ninja rejeté par son village, rêve de devenir Hokage pour être enfin reconnu de tous.",
       "writerName": "Masashi",
       "writerSurname": "Kishimoto",
       "editorName": "Shueisha",
       "releaseYear": 1999,
-      "coverImage": "/images/covers/naruto-tome-1.jpg"
+      "coverImage": "/images/covers/naruto-tome-1.jpg",
+      "averageRating": 4,
+      "ratingsCount": 4
     }
   ],
   "users": [
@@ -271,7 +299,7 @@
       "comment": "Quick techniques I started using right away.",
       "rating": 4
     },
-        {
+    {
       "id": 6,
       "userId": 2,
       "bookId": 1,

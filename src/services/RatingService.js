@@ -9,10 +9,12 @@ const apiClient = axios.create({
   },
 })
 
-export const getRatingsFromBook = (id) => {
-  return apiClient.get(`booksBackend/${id}/ratings`)
-}
-
-export const getRatings = () => {
+export function getRatings() {
   return apiClient.get('/ratings')
+}
+export function getRatingsFromBook(bookId) {
+  return apiClient.get('/ratings', { params: { bookId } })
+}
+export function addRating(rating) {
+  return apiClient.post('/ratings', rating)
 }

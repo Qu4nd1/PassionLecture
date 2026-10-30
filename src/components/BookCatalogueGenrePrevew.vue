@@ -1,9 +1,37 @@
 <script setup>
 import BookCataloguePreview from '@/components/BookCataloguePreview.vue'
-import { ref } from 'vue'
+import { getRatings } from '@/services/RatingService'
+import { computed, ref, onMounted } from 'vue'
+
 const props = defineProps({
   books: Array,
   genre: String,
+})
+
+const ratings = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await getRatings()
+    ratings.value = response.data
+  } finally {
+    console.log('Request completed : Ratings loaded')
+  }
+})
+
+const averageByBook = computed(() => {
+  const sums = {}
+  for (const r of ratings.value) {
+    sums[r.bookId] ??= { total: 0, count: 0 }
+    sums[r.bookId].total += r.rating
+    sums[r.bookId].count++
+  }
+  const result = {}
+  for (const id in sums) {
+    result[id] = Math.round((sums[id].total / sums[id].count) * 10) / 10
+  }
+  console.log(result)
+  return result
 })
 </script>
 <template>
@@ -13,7 +41,12 @@ const props = defineProps({
       <span>{{ books.length }} ouvrage(s)</span>
     </div>
     <div class="grid">
-      <BookCataloguePreview v-for="book in books" :key="book.id" :book="book" :rating="rating" />
+      <BookCataloguePreview
+        v-for="book in books"
+        :key="book.id"
+        :book="book"
+        :rating="averageByBook[book.id] ?? null"
+      />
     </div>
   </section>
 </template>

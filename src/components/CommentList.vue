@@ -37,8 +37,10 @@ function commentsFilter() {
   return comments
 }
 function checkUsers(id) {
-  if (users.value.id === id) {
-    return users.mail
+  for (let user of users.value) {
+    if (user.id === id) {
+      return user.mail
+    }
   }
 }
 console.log('test')
@@ -51,7 +53,7 @@ console.log(comments)
   </div>
   <article class="comment-item" v-for="comment in comments" :key="comment.id">
     <div class="comment-top">
-      <div class="avatar"></div>
+      <div class="avatar">{{ checkUsers(comment.userId)?.charAt(0).toUpperCase() || '' }}</div>
       <strong>{{ checkUsers(comment.userId) }}</strong
       ><span class="date">{{ comment.date }}</span>
     </div>
